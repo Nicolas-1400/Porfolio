@@ -1,0 +1,63 @@
+CREATE TABLE programadores (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    apellidos VARCHAR(100) NOT NULL,
+    titulacion VARCHAR(100),
+    linkedin VARCHAR(255),
+    email VARCHAR(100) NOT NULL UNIQUE,
+    numeroTelefono VARCHAR(20)
+);
+
+CREATE TABLE tecnologias (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    nivel ENUM('Básico', 'Intermedio', 'Avanzado') NOT NULL
+);
+
+CREATE TABLE idiomas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    nivel ENUM('Básico', 'Intermedio', 'Avanzado') NOT NULL
+);
+
+CREATE TABLE proyectos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(100) NOT NULL,
+    descripcion TEXT,
+    tecnologias VARCHAR(255),
+    empresa VARCHAR(100),
+    fecha DATE,
+    enlace VARCHAR(255)
+);
+
+CREATE TABLE formulario (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    mensaje TEXT NOT NULL
+);
+
+CREATE TABLE programadores_proyectos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    programadorId INT NOT NULL,
+    proyectoId INT NOT NULL,
+    FOREIGN KEY (programadorId) REFERENCES programadores(id),
+    FOREIGN KEY (proyectoId) REFERENCES proyectos(id)
+);
+
+CREATE TABLE programadores_tecnologias (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    programadorId INT NOT NULL,
+    tecnologiaId INT NOT NULL,
+    FOREIGN KEY (programadorId) REFERENCES programadores(id),
+    FOREIGN KEY (tecnologiaId) REFERENCES tecnologias(id)
+);
+
+CREATE TABLE programadores_idiomas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    programadorId INT NOT NULL,
+    idiomaId INT NOT NULL,
+    FOREIGN KEY (programadorId) REFERENCES programadores(id),
+    FOREIGN KEY (idiomaId) REFERENCES idiomas(id)
+);
+
