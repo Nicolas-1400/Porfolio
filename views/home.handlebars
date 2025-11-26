@@ -1,0 +1,66 @@
+<section id="hero" class="hero-section">
+	<img src="/assets/Grupo25.jpg" alt="Foto del equipo" class="team-profile-img img-fluid rounded-circle mb-3">
+	<h1>Group Portfolio</h1>
+	<p>Un equipo de 3 especialistas en desarrollo y diseño, convirtiendo ideas
+		complejas en código limpio y soluciones funcionales.</p>
+	<a href="#proyectos" class="btn-primary">Ver Nuestro Trabajo</a>
+</section>
+
+<section id="proyectos" class="projects-section">
+	<h2>Nuestros Proyectos</h2>
+	<div class="projects-grid">
+		{{#each projects}}
+			<div class="project-card">
+				<h3 class="project-title">{{nombreProyecto}}</h3>
+				<p class="project-date">{{fecha}}</p>
+				<p class="project-description">{{descripcion}}</p>
+				<div class="tech-list">
+					{{#each tecnologias}}
+						<span class="tech-badge">{{this}}</span>
+					{{/each}}
+				</div>
+				<a href="{{enlace}}" target="_blank" class="project-link">Visitar
+					Proyecto →</a>
+			</div>
+		{{/each}}
+	</div>
+</section>
+
+<section id="nosotros" class="team-section">
+	<h2>El Equipo</h2>
+	<div class="team-grid">
+		{{#each teamMembers}}
+			<div class="team-card">
+				<h3 class="team-name">{{nombre}} {{apellidos}}</h3>
+				<p class="team-role">{{rol}}</p>
+				<div class="team-contact">
+					<a href="mailto:{{e_mail}}" title="E-mail">✉️</a>
+					<a href="{{linkedin}}" target="_blank" title="LinkedIn">🔗</a>
+					<a href="{{cv}}" download title="Descargar CV">📄</a>
+				</div>
+			</div>
+		{{/each}}
+	</div>
+</section>
+
+<section id="contacto" class="contact-section">
+    <h2>Contacta con Nosotros</h2>
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-10"> {{!-- Bootstrap para tamaño responsive --}}
+            <form action="/contacto" method="POST" class="contact-form p-4 rounded-3 shadow-lg"> {{!-- Clases de Bootstrap y personalizadas --}}
+                <div class="mb-3">
+                    <input type="text" name="nombre" class="form-control" placeholder="Tu Nombre (requerido)" required>
+                </div>
+                <div class="mb-3">
+                    <input type="email" name="e-mail" class="form-control" placeholder="Tu E-mail (requerido)" required>
+                </div>
+                <div class="mb-4">
+                    <textarea name="mensaje" rows="5" class="form-control" placeholder="Cuéntanos sobre tu proyecto o consulta" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-100 btn-submit">
+                    Enviar Mensaje
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
