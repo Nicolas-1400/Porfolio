@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-11-2025 a las 10:31:58
+-- Tiempo de generación: 26-11-2025 a las 11:07:13
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -60,7 +60,8 @@ CREATE TABLE `idiomas` (
 
 INSERT INTO `idiomas` (`id`, `nombre`) VALUES
 (1, 'Inglés'),
-(2, 'Chino');
+(2, 'Chino'),
+(3, 'Español');
 
 -- --------------------------------------------------------
 
@@ -84,7 +85,8 @@ CREATE TABLE `programadores` (
 
 INSERT INTO `programadores` (`id`, `nombre`, `apellidos`, `titulacion`, `linkedin`, `email`, `numeroTelefono`) VALUES
 (1, 'Álvaro', 'Santos Calvo', 'Desarrollador de aplicaciones web', 'https://www.linkedin.com/in/álvaro-santos-calvo', 'aalvar.s.c@gmail.com', '612345678'),
-(2, 'Nicolás', 'García-Sampedro Docampo', 'Desarrollador de aplicaciones web', 'https://www.linkedin.com/in/nicolás-garcía-sampedro-docampo', 'nicolasgarciasampedrodocampo@gmail.com', '634567890');
+(2, 'Nicolás', 'García-Sampedro Docampo', 'Desarrollador de aplicaciones web', 'https://www.linkedin.com/in/nicolás-garcía-sampedro-docampo', 'nicolasgarciasampedrodocampo@gmail.com', '607896214'),
+(3, 'Chao An', 'Alarcón Chen', 'Desarrollador de Aplicaciones Web', 'https://www.linkedin.com/in/chao-alarc%C3%B3n/', 'chaoalarcon03@gmail.com', '689846699');
 
 -- --------------------------------------------------------
 
@@ -105,7 +107,12 @@ CREATE TABLE `programadores_idiomas` (
 
 INSERT INTO `programadores_idiomas` (`id`, `programadorId`, `idiomaId`, `nivel`) VALUES
 (1, 1, 1, 'Avanzado'),
-(2, 2, 1, 'Intermedio');
+(2, 2, 1, 'Intermedio'),
+(3, 3, 2, 'Avanzado'),
+(4, 3, 1, 'Avanzado'),
+(5, 3, 3, 'Avanzado'),
+(6, 2, 3, 'Avanzado'),
+(7, 1, 3, 'Avanzado');
 
 -- --------------------------------------------------------
 
@@ -131,6 +138,50 @@ CREATE TABLE `programadores_tecnologias` (
   `tecnologiaId` int(11) NOT NULL,
   `nivel` enum('Básico','Intermedio','Avanzado') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `programadores_tecnologias`
+--
+
+INSERT INTO `programadores_tecnologias` (`id`, `programadorId`, `tecnologiaId`, `nivel`) VALUES
+(101, 1, 1, 'Avanzado'),
+(102, 1, 2, 'Avanzado'),
+(103, 1, 3, 'Avanzado'),
+(104, 1, 4, 'Avanzado'),
+(105, 1, 6, 'Intermedio'),
+(106, 1, 7, 'Intermedio'),
+(107, 1, 8, 'Intermedio'),
+(108, 1, 9, 'Avanzado'),
+(109, 1, 10, 'Avanzado'),
+(110, 1, 11, 'Avanzado'),
+(111, 1, 12, 'Avanzado'),
+(117, 1, 18, 'Avanzado'),
+(118, 1, 19, 'Avanzado'),
+(119, 1, 20, 'Intermedio'),
+(120, 2, 1, 'Avanzado'),
+(121, 2, 2, 'Avanzado'),
+(122, 2, 3, 'Avanzado'),
+(123, 2, 4, 'Avanzado'),
+(124, 2, 6, 'Intermedio'),
+(125, 2, 7, 'Intermedio'),
+(126, 2, 8, 'Intermedio'),
+(127, 2, 9, 'Avanzado'),
+(128, 2, 10, 'Avanzado'),
+(129, 2, 11, 'Intermedio'),
+(130, 2, 12, 'Avanzado'),
+(131, 2, 19, 'Básico'),
+(132, 3, 1, 'Avanzado'),
+(133, 3, 2, 'Avanzado'),
+(134, 3, 3, 'Avanzado'),
+(135, 3, 4, 'Avanzado'),
+(136, 3, 6, 'Intermedio'),
+(137, 3, 7, 'Intermedio'),
+(138, 3, 8, 'Intermedio'),
+(139, 3, 9, 'Avanzado'),
+(140, 3, 10, 'Avanzado'),
+(141, 3, 11, 'Intermedio'),
+(142, 3, 12, 'Avanzado'),
+(143, 3, 19, 'Básico');
 
 -- --------------------------------------------------------
 
@@ -168,12 +219,21 @@ INSERT INTO `tecnologias` (`id`, `nombre`) VALUES
 (2, 'JavaScript'),
 (3, 'HTML'),
 (4, 'CSS'),
-(5, 'MySQL'),
 (6, 'Office'),
 (7, 'Azure'),
 (8, 'Linux'),
 (9, 'React'),
-(10, 'Node');
+(10, 'Node'),
+(11, 'Bootstrap'),
+(12, 'SQL'),
+(13, 'Photoshop'),
+(14, 'Premiere Pro'),
+(15, 'After Effects'),
+(16, 'Lightroom'),
+(17, 'Adobe XD'),
+(18, 'Illustrator'),
+(19, 'Figma'),
+(20, 'Workbench');
 
 --
 -- Índices para tablas volcadas
@@ -248,19 +308,19 @@ ALTER TABLE `formulario`
 -- AUTO_INCREMENT de la tabla `idiomas`
 --
 ALTER TABLE `idiomas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `programadores`
 --
 ALTER TABLE `programadores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `programadores_idiomas`
 --
 ALTER TABLE `programadores_idiomas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `programadores_proyectos`
@@ -272,7 +332,7 @@ ALTER TABLE `programadores_proyectos`
 -- AUTO_INCREMENT de la tabla `programadores_tecnologias`
 --
 ALTER TABLE `programadores_tecnologias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=144;
 
 --
 -- AUTO_INCREMENT de la tabla `proyectos`
@@ -284,7 +344,7 @@ ALTER TABLE `proyectos`
 -- AUTO_INCREMENT de la tabla `tecnologias`
 --
 ALTER TABLE `tecnologias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Restricciones para tablas volcadas
