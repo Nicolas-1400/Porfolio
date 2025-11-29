@@ -26,24 +26,41 @@ Este proyecto fue desarrollado utilizando un stack **Full-Stack JavaScript (MEVN
 
 La estructura sigue un patrón modular típico de aplicaciones Express con vistas separadas:
 
-portfolio-grupal-server/ ├── node_modules/
-
-├── public/ <-- Contenido estático (CSS, JS cliente, Assets) │ ├── css/ <-- Hojas de estilo personalizadas (style.css) │ ├── js/ <-- Lógica del lado del cliente y data.js │ └── assets/ <-- Imágenes de perfil y proyecto ├── views/ <-- Plantillas Handlebars │ ├── layouts/ <-- Plantilla principal (main.handlebars) │ └── home.handlebars <-- Contenido de la landing page ├── index.js <-- Lógica del Servidor (Rutas y Renderizado) ├── package.json <-- Dependencias y Scripts
-
----
-
-## 🛠️ Instalación y Ejecución Local
-
-Sigue estos pasos para configurar y ejecutar el proyecto en tu máquina local.
-
-### 1. Requisitos Previos
-
-Asegúrate de tener instalado:
-* **Node.js** (versión 16 o superior)
-* **npm** (Node Package Manager)
-
-### 2. Clonar el Repositorio
-
-```bash
-git clone [URL_DE_TU_REPOSITORIO]
-cd portfolio-grupal-server
+portfolio-api/
+├── package.json
+├── src/
+│   ├── app.js
+│   ├── database/
+│   │   └── connection.js
+│   ├── models/
+│   │   ├── Formulario.js
+│   │   ├── Idioma.js
+│   │   ├── Programador.js
+│   │   ├── ProgramadorIdioma.js
+│   │   ├── ProgramadorProyecto.js
+│   │   ├── ProgramadorTecnologia.js
+│   │   ├── Proyecto.js
+│   │   └── Tecnologia.js
+│   ├── controllers/
+│   │   ├── homeController.js
+│   │   ├── programadoresController.js
+│   │   ├── proyectosController.js
+│   │   └── formularioController.js
+│   ├── routes/
+│   │   ├── index.js
+│   │   ├── programadores.js
+│   │   ├── proyectos.js
+│   │   └── formulario.js
+│   └── views/
+│       ├── layouts/
+│       │   └── main.hbs
+│       ├── partials/
+│       │   └── _nav.hbs
+│       ├── index.hbs
+│       ├── programadores/
+│       │   ├── list.hbs
+│       │   └── detail.hbs
+│       ├── proyectos/
+│       │   └── list.hbs
+│       └── formulario.hbs
+└── .env (opcional)
