@@ -1,0 +1,25 @@
+<h1>{{programador.nombre}} {{programador.apellidos}}</h1>
+<p>{{programador.titulacion}}</p>
+<p>Email: {{programador.email}}</p>
+<p>Tel: {{programador.numeroTelefono}}</p>
+
+<h3>Tecnologías</h3>
+<ul>
+  {{#each programador.tecnologias}}
+    <li>{{this.nombre}} (nivel: {{this.programadores_tecnologias.nivel}})</li>
+  {{/each}}
+</ul>
+
+<h3>Idiomas</h3>
+<ul>
+  {{#each programador.idiomas}}
+    <li>{{this.nombre}} (nivel: {{this.programadores_idiomas.nivel}})</li>
+  {{/each}}
+</ul>
+
+<h3>Proyectos</h3>
+<ul>
+  {{#each programador.proyectos}}
+    <li>{{this.titulo}} — {{this.empresa}}</li>
+  {{/each}}
+</ul>

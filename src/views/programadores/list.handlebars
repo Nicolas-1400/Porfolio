@@ -1,0 +1,9 @@
+<h1>Programadores</h1>
+<ul>
+  {{#each programadores}}
+    <li>
+      <a href="/programadores/{{this.id}}">{{this.nombre}} {{this.apellidos}}</a>
+      — {{this.titulacion}}
+    </li>
+  {{/each}}
+</ul>
