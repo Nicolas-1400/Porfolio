@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-11-2025 a las 11:07:13
+-- Tiempo de generación: 02-12-2025 a las 11:45:24
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -46,12 +46,40 @@ INSERT INTO `formulario` (`id`, `nombre`, `email`, `mensaje`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `formularios`
+--
+
+CREATE TABLE `formularios` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `mensaje` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `formularios`
+--
+
+INSERT INTO `formularios` (`id`, `nombre`, `email`, `mensaje`) VALUES
+(1, 'Prueba con todos', 'jooooo@gmail.com', 'completa este campo'),
+(2, 'Prueba con todos', 'jooooo@gmail.com', 'completa este campo'),
+(3, 'a', 'a@em.com', 'a'),
+(4, 'a', 'a@em.com', 'a'),
+(5, 'a', 'a@em.com', 'a'),
+(6, 'a', 'a@c', 'a'),
+(7, 'a', 'a@c', 'a'),
+(8, 'a', 'a@v', 'a\r\n'),
+(9, 'Prueba', 'prueba@example.com', 'Hola');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `idiomas`
 --
 
 CREATE TABLE `idiomas` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(50) NOT NULL
+  `nombre` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -71,12 +99,12 @@ INSERT INTO `idiomas` (`id`, `nombre`) VALUES
 
 CREATE TABLE `programadores` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(50) NOT NULL,
-  `apellidos` varchar(100) NOT NULL,
-  `titulacion` varchar(100) DEFAULT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `apellidos` varchar(255) NOT NULL,
+  `titulacion` varchar(255) DEFAULT NULL,
   `linkedin` varchar(255) DEFAULT NULL,
-  `email` varchar(100) NOT NULL,
-  `numeroTelefono` varchar(20) DEFAULT NULL
+  `email` varchar(255) NOT NULL,
+  `numeroTelefono` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -96,9 +124,9 @@ INSERT INTO `programadores` (`id`, `nombre`, `apellidos`, `titulacion`, `linkedi
 
 CREATE TABLE `programadores_idiomas` (
   `id` int(11) NOT NULL,
-  `programadorId` int(11) NOT NULL,
-  `idiomaId` int(11) NOT NULL,
-  `nivel` enum('Básico','Intermedio','Avanzado') NOT NULL
+  `programadorId` int(11) DEFAULT NULL,
+  `idiomaId` int(11) DEFAULT NULL,
+  `nivel` enum('Básico','Intermedio','Avanzado') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -122,8 +150,8 @@ INSERT INTO `programadores_idiomas` (`id`, `programadorId`, `idiomaId`, `nivel`)
 
 CREATE TABLE `programadores_proyectos` (
   `id` int(11) NOT NULL,
-  `programadorId` int(11) NOT NULL,
-  `proyectoId` int(11) NOT NULL
+  `programadorId` int(11) DEFAULT NULL,
+  `proyectoId` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -134,9 +162,9 @@ CREATE TABLE `programadores_proyectos` (
 
 CREATE TABLE `programadores_tecnologias` (
   `id` int(11) NOT NULL,
-  `programadorId` int(11) NOT NULL,
-  `tecnologiaId` int(11) NOT NULL,
-  `nivel` enum('Básico','Intermedio','Avanzado') NOT NULL
+  `programadorId` int(11) DEFAULT NULL,
+  `tecnologiaId` int(11) DEFAULT NULL,
+  `nivel` enum('Básico','Intermedio','Avanzado') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -191,13 +219,20 @@ INSERT INTO `programadores_tecnologias` (`id`, `programadorId`, `tecnologiaId`, 
 
 CREATE TABLE `proyectos` (
   `id` int(11) NOT NULL,
-  `titulo` varchar(100) NOT NULL,
+  `titulo` varchar(255) NOT NULL,
   `descripcion` text DEFAULT NULL,
   `tecnologias` varchar(255) DEFAULT NULL,
-  `empresa` varchar(100) DEFAULT NULL,
+  `empresa` varchar(255) DEFAULT NULL,
   `fecha` date DEFAULT NULL,
   `enlace` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `proyectos`
+--
+
+INSERT INTO `proyectos` (`id`, `titulo`, `descripcion`, `tecnologias`, `empresa`, `fecha`, `enlace`) VALUES
+(1, 'UnProyectoRandom', 'Esto es una prueba para ver si funciona la lectura de datos', 'HTML, CSS, NODE, HANDLEBARS', 'Nebrija', '2025-12-02', 'https://www.youtube.com');
 
 -- --------------------------------------------------------
 
@@ -207,7 +242,7 @@ CREATE TABLE `proyectos` (
 
 CREATE TABLE `tecnologias` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(50) NOT NULL
+  `nombre` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -246,6 +281,12 @@ ALTER TABLE `formulario`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `formularios`
+--
+ALTER TABLE `formularios`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `idiomas`
 --
 ALTER TABLE `idiomas`
@@ -256,7 +297,18 @@ ALTER TABLE `idiomas`
 --
 ALTER TABLE `programadores`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `email` (`email`);
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `email_2` (`email`),
+  ADD UNIQUE KEY `email_3` (`email`),
+  ADD UNIQUE KEY `email_4` (`email`),
+  ADD UNIQUE KEY `email_5` (`email`),
+  ADD UNIQUE KEY `email_6` (`email`),
+  ADD UNIQUE KEY `email_7` (`email`),
+  ADD UNIQUE KEY `email_8` (`email`),
+  ADD UNIQUE KEY `email_9` (`email`),
+  ADD UNIQUE KEY `email_10` (`email`),
+  ADD UNIQUE KEY `email_11` (`email`),
+  ADD UNIQUE KEY `email_12` (`email`);
 
 --
 -- Indices de la tabla `programadores_idiomas`
@@ -305,6 +357,12 @@ ALTER TABLE `formulario`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT de la tabla `formularios`
+--
+ALTER TABLE `formularios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT de la tabla `idiomas`
 --
 ALTER TABLE `idiomas`
@@ -338,7 +396,7 @@ ALTER TABLE `programadores_tecnologias`
 -- AUTO_INCREMENT de la tabla `proyectos`
 --
 ALTER TABLE `proyectos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `tecnologias`
