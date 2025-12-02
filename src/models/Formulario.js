@@ -5,6 +5,6 @@ const Formulario = sequelize.define('formulario', {
   nombre: { type: DataTypes.STRING, allowNull: false },
   email: { type: DataTypes.STRING, allowNull: false },
   mensaje: { type: DataTypes.TEXT, allowNull: false }
-}, { timestamps: false });
+}, { timestamps: false, freezeTableName: true });
 
 module.exports = Formulario;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-12-2025 a las 11:45:24
+-- Tiempo de generación: 02-12-2025 a las 12:03:51
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -29,8 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `formulario` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
   `mensaje` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -39,37 +39,11 @@ CREATE TABLE `formulario` (
 --
 
 INSERT INTO `formulario` (`id`, `nombre`, `email`, `mensaje`) VALUES
-(1, 'Laura Martínez', 'laura.martinez@example.com', 'Estoy interesada en saber más sobre vuestros servicios.'),
-(2, 'Carlos Pérez', 'carlos.perez@example.com', 'Me gustaría contactar con dos desarrolladores para un proyecto personal.'),
-(3, 'Marta Gómez', 'marta.gomez@example.com', '¿Podrían enviarme información sobre disponibilidad y precios?');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `formularios`
---
-
-CREATE TABLE `formularios` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `mensaje` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `formularios`
---
-
-INSERT INTO `formularios` (`id`, `nombre`, `email`, `mensaje`) VALUES
-(1, 'Prueba con todos', 'jooooo@gmail.com', 'completa este campo'),
-(2, 'Prueba con todos', 'jooooo@gmail.com', 'completa este campo'),
-(3, 'a', 'a@em.com', 'a'),
-(4, 'a', 'a@em.com', 'a'),
-(5, 'a', 'a@em.com', 'a'),
-(6, 'a', 'a@c', 'a'),
-(7, 'a', 'a@c', 'a'),
-(8, 'a', 'a@v', 'a\r\n'),
-(9, 'Prueba', 'prueba@example.com', 'Hola');
+(1, '', '', ''),
+(2, '', '', ''),
+(3, '', '', ''),
+(4, 'Sálocin', 'salocin@ejemplo.com', 'Esto es una prueba'),
+(5, 'a', 'a@aaaaaa', 'abcd');
 
 -- --------------------------------------------------------
 
@@ -281,12 +255,6 @@ ALTER TABLE `formulario`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `formularios`
---
-ALTER TABLE `formularios`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indices de la tabla `idiomas`
 --
 ALTER TABLE `idiomas`
@@ -308,7 +276,12 @@ ALTER TABLE `programadores`
   ADD UNIQUE KEY `email_9` (`email`),
   ADD UNIQUE KEY `email_10` (`email`),
   ADD UNIQUE KEY `email_11` (`email`),
-  ADD UNIQUE KEY `email_12` (`email`);
+  ADD UNIQUE KEY `email_12` (`email`),
+  ADD UNIQUE KEY `email_13` (`email`),
+  ADD UNIQUE KEY `email_14` (`email`),
+  ADD UNIQUE KEY `email_15` (`email`),
+  ADD UNIQUE KEY `email_16` (`email`),
+  ADD UNIQUE KEY `email_17` (`email`);
 
 --
 -- Indices de la tabla `programadores_idiomas`
@@ -354,13 +327,7 @@ ALTER TABLE `tecnologias`
 -- AUTO_INCREMENT de la tabla `formulario`
 --
 ALTER TABLE `formulario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT de la tabla `formularios`
---
-ALTER TABLE `formularios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `idiomas`
