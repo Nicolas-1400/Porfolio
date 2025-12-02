@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../database/connection');
+const sequelize = require('../database/conexion');
 
 const ProgramadorIdioma = sequelize.define('programadores_idiomas', {
   programadorId: DataTypes.INTEGER,

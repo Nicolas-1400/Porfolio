@@ -1,12 +1,13 @@
 const express = require("express");
 const exhbs = require("express-handlebars");
+const sequelize = require("./database/conexion");
 
 const app = express();
 
 app.use(express.static("public"));
 
 
-// 1. Configurar Handlebars (apuntando a la carpeta 'views')
+// Configurar Handlebars (apuntando a la carpeta 'views')
 app.set("views", "./views");
 app.engine(
 	".handlebars",
@@ -20,7 +21,7 @@ app.engine(
 app.engine("handlebars", exhbs.engine());
 app.set("view engine", "handlebars");
 
-// 4. Ruta principal
+// Ruta principal
 app.get("/", (req, res) => {
 	// Pasar los datos de las entidades a la vista 'home.handlebars'
 	res.render("home", {
