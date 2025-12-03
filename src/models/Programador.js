@@ -2,7 +2,7 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../database/conexion');
 
 const Programador = sequelize.define('programadores', {
-  imagen: { type: DataTypes.STRING } ,
+  imagen: { type: DataTypes.STRING, defaultValue: "/assets/{{nombre}}.jpg" }, // No funciona esta ruta, las imágenes se asignan en el homeController
   nombre: { type: DataTypes.STRING, allowNull: false },
   apellidos: { type: DataTypes.STRING, allowNull: false },
   titulacion: DataTypes.STRING,
