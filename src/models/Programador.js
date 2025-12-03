@@ -2,6 +2,7 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../database/conexion');
 
 const Programador = sequelize.define('programadores', {
+  imagen: { type: DataTypes.STRING } ,
   nombre: { type: DataTypes.STRING, allowNull: false },
   apellidos: { type: DataTypes.STRING, allowNull: false },
   titulacion: DataTypes.STRING,
