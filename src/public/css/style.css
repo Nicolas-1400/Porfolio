@@ -417,8 +417,7 @@ nav a:hover::before {
 	border: 1px solid rgba(124, 58, 237, 0.12);
 	border-radius: 24px;
 	padding: var(--spacing-xl) var(--spacing-lg);
-	box-shadow: 0 20px 60px rgba(2, 6, 23, 0.8), 
-	           0 0 60px rgba(124, 58, 237, 0.08);
+	box-shadow: 0 20px 60px rgba(2, 6, 23, 0.8), 0 0 60px rgba(124, 58, 237, 0.08);
 	width: 100%;
 	backdrop-filter: blur(10px);
 }
@@ -440,7 +439,8 @@ nav a:hover::before {
 	object-fit: cover;
 	border-radius: 16px;
 	border: 3px solid rgba(124, 58, 237, 0.08);
-	box-shadow: 0 8px 30px rgba(6, 182, 212, 0.04) inset, 0 8px 30px rgba(0,0,0,0.4);
+	box-shadow: 0 8px 30px rgba(6, 182, 212, 0.04) inset,
+		0 8px 30px rgba(0, 0, 0, 0.4);
 	display: block;
 	margin: 0 auto;
 }
@@ -460,7 +460,7 @@ nav a:hover::before {
 	height: 44px;
 	border-radius: 10px;
 	color: var(--text-secondary);
-	background: rgba(255,255,255,0.02);
+	background: rgba(255, 255, 255, 0.02);
 	transition: all 0.18s ease;
 	text-decoration: none;
 }
@@ -468,7 +468,7 @@ nav a:hover::before {
 .contact-icon:hover {
 	color: var(--accent-neon);
 	transform: translateY(-4px);
-	box-shadow: 0 12px 40px rgba(124,58,237,0.12);
+	box-shadow: 0 12px 40px rgba(124, 58, 237, 0.12);
 }
 
 .programmer-right {
@@ -501,7 +501,11 @@ nav a:hover::before {
 	margin-top: 0;
 	padding: var(--spacing-sm);
 	border-radius: 12px;
-	background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+	background: linear-gradient(
+		180deg,
+		rgba(255, 255, 255, 0.01),
+		rgba(255, 255, 255, 0.005)
+	);
 	border: 1px solid rgba(124, 58, 237, 0.06);
 	margin-bottom: 0;
 	width: 100%;
@@ -544,7 +548,11 @@ nav a:hover::before {
 	color: var(--text-secondary);
 	font-size: 0.9em;
 	padding: 4px 8px;
-	background: linear-gradient(90deg, rgba(124,58,237,0.06), rgba(6,182,212,0.03));
+	background: linear-gradient(
+		90deg,
+		rgba(124, 58, 237, 0.06),
+		rgba(6, 182, 212, 0.03)
+	);
 	border-radius: 8px;
 	margin-left: 8px;
 }
@@ -567,7 +575,7 @@ nav a:hover::before {
 	background: rgba(16, 20, 40, 0.5);
 	padding: 10px 14px;
 	border-radius: 12px;
-	border: 1px solid rgba(124,58,237,0.06);
+	border: 1px solid rgba(124, 58, 237, 0.06);
 	display: inline-flex;
 	flex-direction: column;
 	gap: 6px;
@@ -614,7 +622,6 @@ nav a:hover::before {
 		justify-content: center;
 	}
 }
-
 
 .project-description {
 	color: var(--text-secondary);
@@ -897,73 +904,135 @@ footer {
 		opacity: 1;
 		transform: translateY(0);
 	}
-} /* Grupos
-	de formulario */
-.form-group {
-	margin-bottom: 25px;
+} 
+
+/* ====================================================== */
+/* ENVÍO DE FORMULARIO */
+/* ====================================================== */
+
+/* ====================================================== */
+/* CONTACT FORM — Premium & Interactivo */
+/* ====================================================== */
+.contact-container {
+	max-width: 600px;
+	width: 100%;
+	margin: 0 auto;
+	background: var(--gradient-card);
+	border: 1px solid rgba(124, 58, 237, 0.3);
+	backdrop-filter: blur(10px);
+	border-radius: 20px;
+	box-shadow: 0 20px 60px rgba(2, 6, 23, 0.6);
+	padding: var(--spacing-lg);
 }
+
+.success-message {
+	background: rgba(0, 212, 255, 0.1);
+	border: 1px solid rgba(0, 212, 255, 0.3);
+	border-radius: 12px;
+	padding: 15px 20px;
+	margin-bottom: var(--spacing-lg);
+	text-align: center;
+	color: var(--accent-cyan);
+	font-weight: 500;
+	animation: slideIn 0.4s ease;
+}
+
+.success-message h1 {
+	font-size: 2.5rem;
+	font-weight: 800;
+	margin-bottom: var(--spacing-lg);
+	text-align: center;
+	background: var(--gradient-main);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+@keyframes slideIn {
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.form-group {
+	margin-bottom: var(--spacing-md);
+}
+
 .form-group label {
 	display: block;
-	margin-bottom: 10px;
-	color: #e6eef8;
-	font-weight: 500;
+	margin-bottom: var(--spacing-xs);
+	color: var(--text-primary);
+	font-weight: 600;
 	font-size: 0.95rem;
 	letter-spacing: 0.3px;
 }
+
 .form-group input,
 .form-group textarea {
 	width: 100%;
-	padding: 14px 18px;
-	background: rgba(255, 255, 255, 0.03);
-	border: 1px solid rgba(255, 255, 255, 0.08);
-	border-radius: 10px;
-	color: #e6eef8;
-	font-family: "Inter", sans-serif;
+	padding: 12px 16px;
+	background: rgba(37, 45, 74, 0.5);
+	border: 1px solid rgba(124, 58, 237, 0.2);
+	border-radius: 12px;
+	color: var(--text-primary);
+	font-family: var(--font-body);
 	font-size: 1rem;
-	transition: all 0.2s ease;
+	transition: all 0.3s ease;
 }
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+	color: var(--text-muted);
+}
+
 .form-group input:focus,
 .form-group textarea:focus {
 	outline: none;
-	border-color: var(--accent-a);
-	background: rgba(255, 255, 255, 0.06);
-	box-shadow: 0 0 0 3px rgba(123, 97, 255, 0.1);
+	border-color: var(--accent-neon);
+	background: rgba(37, 45, 74, 0.8);
+	box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
 }
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-	color: rgba(230, 238, 248, 0.4);
-}
+
 .form-group textarea {
 	resize: vertical;
 	min-height: 140px;
 	line-height: 1.6;
-} /* Botón con gradiente neón */
+}
+
 .btn-submit {
 	width: 100%;
-	background: linear-gradient(90deg, #7b61ff, #00d4ff);
-	color: #041023;
+	background: var(--gradient-main);
+	color: var(--primary-dark);
 	font-weight: 700;
-	font-size: 1.05rem;
+	font-size: 1.1em;
 	border: none;
 	border-radius: 12px;
-	padding: 16px 32px;
+	padding: 14px 24px;
 	cursor: pointer;
-	box-shadow: 0 8px 25px rgba(123, 97, 255, 0.15);
-	transition: all 0.2s ease;
-	margin-top: 10px;
+	box-shadow: 0 0 30px rgba(124, 58, 237, 0.4);
+	transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+	margin-top: var(--spacing-sm);
 }
+
 .btn-submit:hover {
-	transform: translateY(-2px);
-	box-shadow: 0 12px 35px rgba(123, 97, 255, 0.3);
-	filter: brightness(1.1);
+	transform: translateY(-3px) scale(1.02);
+	box-shadow: 0 10px 40px rgba(124, 58, 237, 0.6);
 }
+
 .btn-submit:active {
 	transform: translateY(0);
-} /* Responsive */
+}
+
 @media (max-width: 640px) {
 	.contact-container {
-		padding: 30px 25px;
+		padding: var(--spacing-md);
 	}
+
 	.success-message h1 {
 		font-size: 2rem;
 	}
