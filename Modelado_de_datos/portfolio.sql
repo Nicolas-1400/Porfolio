@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-12-2025 a las 09:50:58
+-- Tiempo de generación: 03-12-2025 a las 12:23:26
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -44,9 +44,20 @@ INSERT INTO `formulario` (`id`, `nombre`, `email`, `mensaje`) VALUES
 (3, '', '', ''),
 (4, 'Sálocin', 'salocin@ejemplo.com', 'Esto es una prueba'),
 (5, 'a', 'a@aaaaaa', 'abcd'),
-(0, 'Chao Alarcón Chen', 'chaoalarcon03@gmail.com', 'ff'),
-(0, 'Chao Alarcón Chen', 'chaoalarcon03@gmail.com', 'ff'),
-(0, 'Chao Alarcón Chen', 'chaoalarcon03@gmail.com', 'ff');
+(6, 'Chao Alarcón', 'chaoalarcon01@gmail.com', 'afafa'),
+(7, 'Chao Alarcón', 'chaoalarcon01@gmail.com', 'afafa'),
+(8, 'Chao Alarcón', 'chaoalarcon01@gmail.com', 'afafa'),
+(9, 'Chao Alarcón', 'chaoalarcon01@gmail.com', 'afafa'),
+(10, 'Chao Alarcón', 'chaoalarcon01@gmail.com', 'afafa'),
+(11, 'Chao Alarcón', 'chaoalarcon01@gmail.com', 'afafa'),
+(12, 'Chao Alarcón', 'chaoalarcon01@gmail.com', 'afafa'),
+(13, 'Chao Alarcón', 'chaoalarcon01@gmail.com', 'afafa'),
+(14, 'Chao Alarcón Chen', 'chaoalarcon01@gmail.com', 'GRGRGR'),
+(15, 'Chao Alarcón Chen', 'chaoalarcon01@gmail.com', 'GRGRGR'),
+(16, 'Chao Alarcón Chen', 'chaoalarcon01@gmail.com', 'hola'),
+(17, 'Chao Alarcón Chen', 'chaoalarcon01@gmail.com', 'hola'),
+(18, 'Chao Alarcón Chen', 'chaoalarcon01@gmail.com', 'hola'),
+(19, 'Chao Alarcón Chen', 'chaoalarcon01@gmail.com', 'hola');
 
 -- --------------------------------------------------------
 
@@ -257,6 +268,12 @@ INSERT INTO `tecnologias` (`id`, `nombre`) VALUES
 --
 
 --
+-- Indices de la tabla `formulario`
+--
+ALTER TABLE `formulario`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `idiomas`
 --
 ALTER TABLE `idiomas`
@@ -287,21 +304,7 @@ ALTER TABLE `programadores`
   ADD UNIQUE KEY `email_18` (`email`),
   ADD UNIQUE KEY `email_19` (`email`),
   ADD UNIQUE KEY `email_20` (`email`),
-  ADD UNIQUE KEY `email_21` (`email`),
-  ADD UNIQUE KEY `email_22` (`email`),
-  ADD UNIQUE KEY `email_23` (`email`),
-  ADD UNIQUE KEY `email_24` (`email`),
-  ADD UNIQUE KEY `email_25` (`email`),
-  ADD UNIQUE KEY `email_26` (`email`),
-  ADD UNIQUE KEY `email_27` (`email`),
-  ADD UNIQUE KEY `email_28` (`email`),
-  ADD UNIQUE KEY `email_29` (`email`),
-  ADD UNIQUE KEY `email_30` (`email`),
-  ADD UNIQUE KEY `email_31` (`email`),
-  ADD UNIQUE KEY `email_32` (`email`),
-  ADD UNIQUE KEY `email_33` (`email`),
-  ADD UNIQUE KEY `email_34` (`email`),
-  ADD UNIQUE KEY `email_35` (`email`);
+  ADD UNIQUE KEY `email_21` (`email`);
 
 --
 -- Indices de la tabla `programadores_idiomas`
@@ -344,6 +347,12 @@ ALTER TABLE `tecnologias`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `formulario`
+--
+ALTER TABLE `formulario`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
 -- AUTO_INCREMENT de la tabla `idiomas`
 --
 ALTER TABLE `idiomas`
@@ -377,7 +386,7 @@ ALTER TABLE `programadores_tecnologias`
 -- AUTO_INCREMENT de la tabla `proyectos`
 --
 ALTER TABLE `proyectos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `tecnologias`
