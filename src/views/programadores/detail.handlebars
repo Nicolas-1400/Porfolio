@@ -1,25 +1,90 @@
-<h1>{{programador.nombre}} {{programador.apellidos}}</h1>
-<p>{{programador.titulacion}}</p>
-<p>Email: {{programador.email}}</p>
-<p>Tel: {{programador.numeroTelefono}}</p>
+<section class="programmer-detail">
+  <div class="programmer-card">
+    <div class="programmer-grid" style="display:flex; gap:var(--spacing-lg); align-items:flex-start;">
+      <aside class="programmer-left" style="flex:0 0 260px;">
+        {{#if programador.imagen}}
+          <img src="{{programador.imagen}}" alt="Foto de {{programador.nombre}}" class="programmer-img">
+        {{else}}
+          <div class="programmer-img" style="background: var(--gradient-main); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">SIN IMAGEN</div>
+        {{/if}}
 
-<h3>Tecnologías</h3>
-<ul>
-  {{#each programador.tecnologias}}
-    <li>{{this.nombre}} (nivel: {{this.programadores_tecnologias.nivel}})</li>
-  {{/each}}
-</ul>
+        <div style="text-align:center; margin-top: var(--spacing-sm);">
+          {{#if programador.cvFile}}
+            <a href="{{programador.cvFile}}" class="btn-primary" download>Descargar CV</a>
+          {{/if}}
+        </div>
 
-<h3>Idiomas</h3>
-<ul>
-  {{#each programador.idiomas}}
-    <li>{{this.nombre}} (nivel: {{this.programadores_idiomas.nivel}})</li>
-  {{/each}}
-</ul>
+        <div class="programmer-contact" style="margin-top: var(--spacing-md); justify-content:center;">
+          {{#if programador.email}}<a href="mailto:{{programador.email}}" title="E-mail" class="contact-icon">✉️</a>{{/if}}
+          {{#if programador.linkedin}}<a href="{{programador.linkedin}}" target="_blank" title="LinkedIn" class="contact-icon">🔗</a>{{/if}}
+        </div>
+      </aside>
 
-<h3>Proyectos</h3>
-<ul>
-  {{#each programador.proyectos}}
-    <li>{{this.titulo}} — {{this.empresa}}</li>
-  {{/each}}
-</ul>
+      <div class="programmer-right" style="flex:1;">
+        <h1 class="programmer-name">{{programador.nombre}} {{programador.apellidos}}</h1>
+        <p class="programmer-role">{{programador.titulacion}}</p>
+
+        {{#if programador.cv}}
+          <p class="programmer-cv">{{programador.cv}}</p>
+        {{/if}}
+
+        <div class="programmer-skills">
+          {{#if programador.Idiomas}}
+            {{#if programador.Idiomas.length}}
+              <div class="skills-section">
+                <h3 class="skills-title language-title">Idiomas</h3>
+                <ul class="skills-list">
+                  {{#each programador.Idiomas}}
+                    <li class="skill-item">
+                      <span class="skill-name">{{this.nombre}}</span>
+                      <span class="skill-level">{{this.programadores_idiomas.nivel}}</span>
+                    </li>
+                  {{/each}}
+                </ul>
+              </div>
+            {{/if}}
+          {{/if}}
+
+          {{#if programador.Tecnologias}}
+            {{#if programador.Tecnologias.length}}
+              <div class="skills-section">
+                <h3 class="skills-title tech-title">Tecnologías</h3>
+                <ul class="skills-list">
+                  {{#each programador.Tecnologias}}
+                    <li class="skill-item">
+                      <span class="skill-name">{{this.nombre}}</span>
+                      <span class="skill-level">{{this.programadores_tecnologias.nivel}}</span>
+                    </li>
+                  {{/each}}
+                </ul>
+              </div>
+            {{/if}}
+          {{/if}}
+
+          {{#if programador.Proyectos}}
+            {{#if programador.Proyectos.length}}
+              <div class="skills-section projects-section-detail">
+                <h3 class="skills-title project-title">Proyectos</h3>
+                <ul class="projects-list">
+                  {{#each programador.Proyectos}}
+                    <li class="project-item">
+                      <div class="project-title-small">{{this.titulo}}</div>
+                      {{#if this.descripcion}}<div class="project-meta">{{this.descripcion}}</div>{{/if}}
+                      {{#if this.enlace}}<div class="project-meta"><a href="{{this.enlace}}" target="_blank">Enlace</a></div>{{/if}}
+                      {{#if this.programadores_proyectos}}
+                        <div class="project-meta">
+                          {{#if this.programadores_proyectos.nivel}}Nivel: {{this.programadores_proyectos.nivel}}{{/if}}
+                          {{#if this.programadores_proyectos.rol}} — Rol: {{this.programadores_proyectos.rol}}{{/if}}
+                        </div>
+                      {{/if}}
+                    </li>
+                  {{/each}}
+                </ul>
+              </div>
+            {{/if}}
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -40,6 +40,7 @@ exports.index = async (req, res) => {
 
 		// Transformar programadores para la plantilla
 		const teamMembers = programadores.map(u => ({
+			id: u.id || '',
 			nombre: u.nombre || '',
 			apellidos: u.apellidos || '',
 			rol: u.titulacion || '',
@@ -70,16 +71,43 @@ exports.list = async (req, res) => {
 };
 
 exports.detail = async (req, res) => {
-  const id = req.params.id;
-  const programador = await Programador.findByPk(id, {
-    include: [
-      { model: Idioma, through: { attributes: ['nivel'] } },
-      { model: Tecnologia, through: { attributes: ['nivel'] } },
-      { model: Proyecto }
-    ]
-  });
-  if (!programador) return res.status(404).send('No encontrado');
-  res.render('programadores/detail', { programador });
+  try {
+    const id = req.params.id;
+    const Idioma = require('../models/Idioma');
+    const Tecnologia = require('../models/Tecnologias');
+    const Proyecto = require('../models/Proyecto');
+
+    const programador = await Programador.findByPk(id, {
+      include: [
+        { model: Idioma, as: 'Idiomas', through: { attributes: ['nivel'] } },
+        { model: Tecnologia, as: 'Tecnologias', through: { attributes: ['nivel'] } },
+        { model: Proyecto, as: 'Proyectos' }
+      ]
+    });
+
+		if (!programador) return res.status(404).send('No encontrado');
+
+		// Convertir la instancia de Sequelize a objeto plano para que Handlebars pueda acceder
+		const programadorData = programador.toJSON ? programador.toJSON() : JSON.parse(JSON.stringify(programador));
+
+		// TEMPORAL: Añadir CV de ejemplo si no existe (diferente para cada ID)
+		if (!programadorData.cv) {
+			const cvExamples = {
+				1: `Desarrollador Full Stack con más de 5 años de experiencia en diseño e implementación de soluciones web escalables. Especialista en JavaScript, React y Node.js con amplio conocimiento en bases de datos relacionales y NoSQL. Apasionado por las mejores prácticas de código limpio, testing y arquitectura de software.`,
+				2: `Ingeniero de Software especializado en backend y microservicios. Experto en Python, Java y Go con profundo conocimiento en DevOps, Docker y Kubernetes. Dedicado a la optimización de rendimiento y seguridad en aplicaciones empresariales.`,
+				3: `Diseñadora UX/UI con 4 años de experiencia creando interfaces intuitivas y accesibles. Especialista en Figma, Adobe Creative Suite y prototipado interactivo. Pasión por la investigación de usuarios y la usabilidad.`,
+			};
+			programadorData.cv = cvExamples[id] || cvExamples[1];
+		}
+
+		// Los proyectos se cargan automáticamente de la tabla programadores_proyectos
+		// Si no hay, la plantilla no mostrará la sección
+
+		res.render('programadores/detail', { programador: programadorData });
+  } catch (error) {
+    console.error('Error al cargar detalle del programador:', error);
+    res.status(500).send('Error al cargar la página');
+  }
 };
 
 // PROYECTOS

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-12-2025 a las 12:23:26
+-- Tiempo de generación: 03-12-2025 a las 14:00:01
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -141,6 +141,28 @@ CREATE TABLE `programadores_proyectos` (
   `programadorId` int(11) DEFAULT NULL,
   `proyectoId` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `programadores_proyectos`
+--
+
+INSERT INTO `programadores_proyectos` (`id`, `programadorId`, `proyectoId`) VALUES
+(1, 1, 4),
+(2, 1, 5),
+(3, 1, 6),
+(4, 1, 7),
+(5, 1, 2),
+(6, 2, 4),
+(7, 2, 5),
+(8, 2, 6),
+(9, 2, 7),
+(10, 2, 2),
+(11, 3, 4),
+(12, 3, 5),
+(13, 3, 6),
+(14, 3, 7),
+(15, 3, 2),
+(16, 3, 3);
 
 -- --------------------------------------------------------
 
@@ -374,7 +396,7 @@ ALTER TABLE `programadores_idiomas`
 -- AUTO_INCREMENT de la tabla `programadores_proyectos`
 --
 ALTER TABLE `programadores_proyectos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `programadores_tecnologias`

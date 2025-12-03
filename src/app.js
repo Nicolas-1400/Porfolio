@@ -13,6 +13,9 @@ require("./models/ProgramadorIdioma");
 require("./models/ProgramadorProyecto");
 require("./models/ProgramadorTecnologia");
 
+// Cargar las asociaciones
+require("./models/associations");
+
 const app = express();
 
 // Middleware para parsear datos del formulario
@@ -39,7 +42,7 @@ app.set("view engine", "handlebars");
 app.use("/", routes);
 
 // Sincronizar BD e iniciar servidor
-sequelize.sync({ alter: true }).then(() => {
+sequelize.sync({ alter: false }).then(() => {
 	console.log("✓ Base de datos sincronizada");
 	app.listen(3000, () => {
 		console.log("✓ Servidor ejecutándose en http://localhost:3000");

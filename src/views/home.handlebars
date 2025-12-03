@@ -35,7 +35,7 @@
 	<div class="team-grid">
 		{{#each teamMembers}}
 			<div class="team-card">
-				<h3 class="team-name">{{nombre}} {{apellidos}}</h3>
+				<h3 class="team-name"><a href="/programadores/{{id}}" class="team-name-link">{{nombre}} {{apellidos}}</a></h3>
 				<p class="team-role">{{rol}}</p>
 				<div class="team-contact">
 					<a href="mailto:{{e_mail}}" title="E-mail">✉️</a>
