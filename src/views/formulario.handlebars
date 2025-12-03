@@ -1,3 +1,21 @@
-<h1>Contacto</h1>
-{{#if success}}<p style="color:green">Mensaje enviado. Gracias!</p>{{/if}}
+<style>
+	/* Variables del estilo Glass Neon */ :root { --accent-a: #7b61ff; --accent-b:
+	#00d4ff; --bg-primary: #071026; --bg-secondary: #031226; --text-primary:
+	#e6eef8; --text-secondary: rgba(230, 238, 248, 0.8); } body { font-family:
+	'Inter', system-ui, sans-serif; color: var(--text-primary); background:
+	radial-gradient(800px 400px at 10% 20%, rgba(123, 97, 255, 0.08),
+	transparent), radial-gradient(700px 300px at 90% 80%, rgba(0, 212, 255, 0.04),
+	transparent), linear-gradient(180deg, #071026, #031226); min-height: 100vh;
+	display: flex; align-items: center; justify-content: center; padding: 40px
+	20px; } /* Panel con glassmorphism */ 
+</style>
 
+<div class="contact-container">
+	<h1>Contacto</h1>
+
+	{{#if success}}
+		<div class="success-message">
+			✓ Mensaje enviado. Gracias!
+		</div>
+	{{/if}}
+</div>
