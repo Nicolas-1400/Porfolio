@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-12-2025 a las 22:50:05
+-- Tiempo de generación: 03-12-2025 a las 09:50:58
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -43,7 +43,10 @@ INSERT INTO `formulario` (`id`, `nombre`, `email`, `mensaje`) VALUES
 (2, '', '', ''),
 (3, '', '', ''),
 (4, 'Sálocin', 'salocin@ejemplo.com', 'Esto es una prueba'),
-(5, 'a', 'a@aaaaaa', 'abcd');
+(5, 'a', 'a@aaaaaa', 'abcd'),
+(0, 'Chao Alarcón Chen', 'chaoalarcon03@gmail.com', 'ff'),
+(0, 'Chao Alarcón Chen', 'chaoalarcon03@gmail.com', 'ff'),
+(0, 'Chao Alarcón Chen', 'chaoalarcon03@gmail.com', 'ff');
 
 -- --------------------------------------------------------
 
@@ -206,12 +209,12 @@ CREATE TABLE `proyectos` (
 --
 
 INSERT INTO `proyectos` (`id`, `titulo`, `descripcion`, `tecnologias`, `empresa`, `fecha`, `enlace`) VALUES
-(2, 'Sitio web centro comercial Plaza Río 2.', 'Creación de un sitio informativo sobre el centro comercial Plaza Río 2.', 'HTML5, CSS3, JavaScript, Bootstrap, JSON, GitHub, Netlify.', NULL, '2025-06-01', 'https://plazario2.netlify.app/'),
-(3, 'Sitio web de \"OnStream\".', 'Landing page de presentación para la APK de Streaming multimedia OnStream.', 'HTML5, CSS3, GitHub, Netlify', NULL, '2025-03-01', 'https://onstreamweb.netlify.app/'),
-(4, 'Aventura Interactiva \"Warriors of Eazima\".', 'Aventura Interactiva realizada principalmente con el lenguaje Java. Sería un juego con una interfaz gráfica simple y con todo un desarrollo de personajes en la narrativa.', 'Java, GitHub, draw.io', NULL, '2025-06-01', NULL),
-(5, 'Dominó Digital.', 'Juego del dominó hecho en\r\nlenguaje java para jugar de 2 a 4 personas.\r\n', 'Java, GitHub, draw.io', NULL, '2025-04-01', NULL),
-(6, 'Gestión de base de datos de un Hospital.', 'Mediante MySQL y Workbench, la gestión de la base de datos de un hospital.', 'MySQL, Workbench', NULL, '2025-01-01', NULL),
-(7, 'Plataforma de E-Learning \"NebriAcademy\".', 'Creación de una plataforma online de E-Learning siguiendo una\r\narquitectura cliente/Servidor limpia y cubriendo todas las\r\netapas necesarias: Toma de requisitos, prototipado,\r\npruebas y despliegue. Tecnologías de desarrollo iniciales:\r\nNode (Back) y React (Front).\r\n', 'HTML5, CSS3, Bootstrap, JavaScript, React, Node, SQL, GitHub', NULL, '2026-02-01', NULL);
+(2, 'Sitio web centro comercial Plaza Río 2.', 'Creación de un sitio informativo sobre el centro comercial Plaza Río 2.', 'HTML5, CSS3, JavaScript, Bootstrap, JSON, GitHub, Netlify', 'Instituto Nebrija de Formación Profesional', '2025-06-01', 'https://plazario2.netlify.app/'),
+(3, 'Sitio web de \"OnStream\".', 'Landing page de presentación para la APK de Streaming multimedia OnStream.', 'HTML5, CSS3, GitHub, Netlify', 'Instituto Nebrija de Formación Profesional', '2025-03-01', 'https://onstreamweb.netlify.app/'),
+(4, 'Aventura Interactiva \"Warriors of Eazima\".', 'Aventura Interactiva realizada principalmente con el lenguaje Java. Sería un juego con una interfaz gráfica simple y con todo un desarrollo de personajes en la narrativa.', 'Java, GitHub, draw.io', 'Instituto Nebrija de Formación Profesional', '2025-06-01', 'https://github.com/ChaoAlarcon/Elige-Tu-Propia-Aventura-II'),
+(5, 'Dominó Digital.', 'Juego del dominó hecho en\r\nlenguaje java para jugar de 2 a 4 personas.\r\n', 'Java, GitHub, draw.io', 'Instituto Nebrija de Formación Profesional', '2025-04-01', 'https://github.com/Nicolas-1400/Domino1.5'),
+(6, 'Gestión de base de datos de un Hospital.', 'Mediante MySQL y Workbench, la gestión de la base de datos de un hospital.', 'MySQL, Workbench', 'Instituto Nebrija de Formación Profesional', '2025-01-01', NULL),
+(7, 'Plataforma de E-Learning \"NebriAcademy\".', 'Creación de una plataforma online de E-Learning siguiendo una\r\narquitectura cliente/Servidor limpia y cubriendo todas las\r\netapas necesarias: Toma de requisitos, prototipado,\r\npruebas y despliegue. Tecnologías de desarrollo iniciales:\r\nNode (Back) y React (Front).\r\n', 'HTML5, CSS3, Bootstrap, JavaScript, React, Node, SQL, GitHub', 'Instituto Nebrija de Formación Profesional', '2026-02-01', 'https://github.com/Nicolas-1400/NebriAcademy');
 
 -- --------------------------------------------------------
 
@@ -254,12 +257,6 @@ INSERT INTO `tecnologias` (`id`, `nombre`) VALUES
 --
 
 --
--- Indices de la tabla `formulario`
---
-ALTER TABLE `formulario`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indices de la tabla `idiomas`
 --
 ALTER TABLE `idiomas`
@@ -286,7 +283,25 @@ ALTER TABLE `programadores`
   ADD UNIQUE KEY `email_14` (`email`),
   ADD UNIQUE KEY `email_15` (`email`),
   ADD UNIQUE KEY `email_16` (`email`),
-  ADD UNIQUE KEY `email_17` (`email`);
+  ADD UNIQUE KEY `email_17` (`email`),
+  ADD UNIQUE KEY `email_18` (`email`),
+  ADD UNIQUE KEY `email_19` (`email`),
+  ADD UNIQUE KEY `email_20` (`email`),
+  ADD UNIQUE KEY `email_21` (`email`),
+  ADD UNIQUE KEY `email_22` (`email`),
+  ADD UNIQUE KEY `email_23` (`email`),
+  ADD UNIQUE KEY `email_24` (`email`),
+  ADD UNIQUE KEY `email_25` (`email`),
+  ADD UNIQUE KEY `email_26` (`email`),
+  ADD UNIQUE KEY `email_27` (`email`),
+  ADD UNIQUE KEY `email_28` (`email`),
+  ADD UNIQUE KEY `email_29` (`email`),
+  ADD UNIQUE KEY `email_30` (`email`),
+  ADD UNIQUE KEY `email_31` (`email`),
+  ADD UNIQUE KEY `email_32` (`email`),
+  ADD UNIQUE KEY `email_33` (`email`),
+  ADD UNIQUE KEY `email_34` (`email`),
+  ADD UNIQUE KEY `email_35` (`email`);
 
 --
 -- Indices de la tabla `programadores_idiomas`
@@ -327,12 +342,6 @@ ALTER TABLE `tecnologias`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
-
---
--- AUTO_INCREMENT de la tabla `formulario`
---
-ALTER TABLE `formulario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `idiomas`
