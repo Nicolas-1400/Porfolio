@@ -906,7 +906,6 @@ footer {
 	}
 } 
 
-<<<<<<< HEAD
 /* ====================================================== */
 /* ENVÍO DE FORMULARIO */
 /* ====================================================== */
@@ -924,12 +923,6 @@ footer {
 	border-radius: 20px;
 	box-shadow: 0 20px 60px rgba(2, 6, 23, 0.6);
 	padding: var(--spacing-lg);
-=======
-/* Grupos
-	de formulario */
-.form-group {
-	margin-bottom: 25px;
->>>>>>> origin/Chao
 }
 
 .success-message {
