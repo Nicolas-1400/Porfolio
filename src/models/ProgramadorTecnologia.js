@@ -1,10 +1,8 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../database/conexion');
 
-const ProgramadorTecnologia = sequelize.define('programadores_tecnologias', {
+module.exports = sequelize.define('programadores_tecnologias', {
   programadorId: DataTypes.INTEGER,
   tecnologiaId: DataTypes.INTEGER,
-  nivel: DataTypes.ENUM('Básico','Intermedio','Avanzado')
+  nivel: DataTypes.ENUM('Básico', 'Intermedio', 'Avanzado'),
 }, { timestamps: false });
-
-module.exports = ProgramadorTecnologia;

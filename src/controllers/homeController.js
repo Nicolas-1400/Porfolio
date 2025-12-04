@@ -1,8 +1,6 @@
 const Programador = require("../models/Programador");
 const Idioma = require("../models/Idioma");
 const Tecnologia = require("../models/Tecnologias");
-const ProgramaIdioma = require("../models/ProgramadorIdioma");
-const ProgramaTec = require("../models/ProgramadorTecnologia");
 const Proyecto = require("../models/Proyecto");
 const Formulario = require("../models/Formulario");
 
@@ -76,60 +74,37 @@ exports.list = async (req, res) => {
 exports.detail = async (req, res) => {
 	try {
 		const id = req.params.id;
-		const Idioma = require("../models/Idioma");
-		const Tecnologia = require("../models/Tecnologias");
-		const Proyecto = require("../models/Proyecto");
 
 		const programador = await Programador.findByPk(id, {
 			include: [
 				{ model: Idioma, as: "Idiomas", through: { attributes: ["nivel"] } },
-				{
-					model: Tecnologia,
-					as: "Tecnologias",
-					through: { attributes: ["nivel"] },
-				},
+				{ model: Tecnologia, as: "Tecnologias", through: { attributes: ["nivel"] } },
 				{ model: Proyecto, as: "Proyectos" },
 			],
 		});
 
 		if (!programador) return res.status(404).send("No encontrado");
 
-		// Convertir la instancia de Sequelize a objeto plano para que Handlebars pueda acceder
-		const programadorData = programador.toJSON
-			? programador.toJSON()
-			: JSON.parse(JSON.stringify(programador));
+		const programadorData = programador.toJSON ? programador.toJSON() : JSON.parse(JSON.stringify(programador));
 
-		// TEMPORAL: Añadir CV de ejemplo si no existe (diferente para cada ID)
 		if (!programadorData.cv) {
-			const cvExamples = {
+			const cv = {
 				1: `Soy una persona trabajadora y responsable, con sólidos conocimientos de programación y alto nivel de inglés, enfocado en la resolución eficaz de los problemas que surgen para alcanzar mis objetivos. Tengo un carácter serio, lo que me permite asumir retos con disciplina y mantener la integridad en mis acciones. Tengo una mentalidad organizada, orientada a la mejora continua y me adapto con facilidad a diferentes contextos, manteniendo siempre una actitud proactiva y colaborativa.`,
 				2: `Me considero una persona comprometida, con una sólida formación en programación y una clara orientación hacia la resolución efectiva de problemas para cumplir los objetivos establecidos. Tengo un carácter extrovertido y no me cuesta adaptarme para trabajar en equipo. Busco seguir desarrollándome profesionalmente en un entorno donde pueda aportar mis conocimientos, asumir nuevos retos y seguir creciendo tanto a nivel técnico como personal.`,
 				3: `Soy un estudiante de desarrollo de aplicaciones web con un buen manejo de diversos lenguajes de programación y programas de Adobe como Photoshop, Premiere Pro, After Effects y Lightroom. Soy una persona creativa, positiva y comunicativa, orientada al público. Apasionada por tecnología, fotografía, diseño, viajes y deportes. Comprometida con el crecimiento personal y profesional.`,
 			};
-			programadorData.cv = cvExamples[id] || cvExamples[1];
+			programadorData.cv = cv[id] || cv[1];
 		}
 
 		if (!programadorData.imagen) {
-			const imageExamples = {
-				1: "/assets/Álvaro.jpg",
-				2: "/assets/Nicolás.jpg",
-				3: "/assets/Chao.jpg",
-			};
-			programadorData.imagen =
-				imageExamples[id] || "/assets/perfil-default.jpg";
+			const imagen = { 1: "/assets/Álvaro.jpg", 2: "/assets/Nicolás.jpg", 3: "/assets/Chao.jpg" };
+			programadorData.imagen = imagen[id] || "/assets/perfil-default.jpg";
 		}
 
 		if (!programadorData.cvFile) {
-			const cvFileExamples = {
-				1: "/assets/Álvaro-CV.pdf",
-				2: "/assets/Nicolás-CV.pdf",
-				3: "/assets/Chao-CV.pdf",
-			};
+			const cvFileExamples = { 1: "/assets/Álvaro-CV.pdf", 2: "/assets/Nicolás-CV.pdf", 3: "/assets/Chao-CV.pdf" };
 			programadorData.cvFile = cvFileExamples[id] || "/assets/default-CV.pdf";
 		}
-
-		// Los proyectos se cargan automáticamente de la tabla programadores_proyectos
-		// Si no hay, la plantilla no mostrará la sección
 
 		res.render("programadores/detail", { programador: programadorData });
 	} catch (error) {
@@ -139,7 +114,7 @@ exports.detail = async (req, res) => {
 };
 
 // PROYECTOS
-exports.list = async (req, res) => {
+exports.listProyectos = async (req, res) => {
 	const proyectos = await Proyecto.findAll();
 	res.render("proyectos/list", { proyectos });
 };

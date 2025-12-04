@@ -35,7 +35,6 @@ app.engine(
 	})
 );
 // Configuración de Handlebars
-app.engine("handlebars", exhbs.engine());
 app.set("view engine", "handlebars");
 
 // Usar rutas
