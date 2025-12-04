@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-12-2025 a las 09:28:37
+-- Tiempo de generación: 04-12-2025 a las 09:34:06
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -94,6 +94,7 @@ CREATE TABLE `programadores` (
   `id` int(11) NOT NULL,
   `nombre` varchar(255) NOT NULL,
   `apellidos` varchar(255) NOT NULL,
+  `imagen` varchar(60) DEFAULT NULL,
   `titulacion` varchar(255) DEFAULT NULL,
   `linkedin` varchar(255) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
@@ -104,10 +105,10 @@ CREATE TABLE `programadores` (
 -- Volcado de datos para la tabla `programadores`
 --
 
-INSERT INTO `programadores` (`id`, `nombre`, `apellidos`, `titulacion`, `linkedin`, `email`, `numeroTelefono`) VALUES
-(1, 'Álvaro', 'Santos Calvo', 'Desarrollador de aplicaciones web', 'https://www.linkedin.com/in/álvaro-santos-calvo', 'aalvar.s.c@gmail.com', '612345678'),
-(2, 'Nicolás', 'García-Sampedro Docampo', 'Desarrollador de aplicaciones web', 'https://www.linkedin.com/in/nicolás-garcía-sampedro-docampo', 'nicolasgarciasampedrodocampo@gmail.com', '607896214'),
-(3, 'Chao An', 'Alarcón Chen', 'Desarrollador de Aplicaciones Web', 'https://www.linkedin.com/in/chao-alarc%C3%B3n/', 'chaoalarcon03@gmail.com', '689846699');
+INSERT INTO `programadores` (`id`, `nombre`, `apellidos`, `imagen`, `titulacion`, `linkedin`, `email`, `numeroTelefono`) VALUES
+(1, 'Álvaro', 'Santos Calvo', NULL, 'Desarrollador de aplicaciones web', 'https://www.linkedin.com/in/álvaro-santos-calvo', 'aalvar.s.c@gmail.com', '612345678'),
+(2, 'Nicolás', 'García-Sampedro Docampo', NULL, 'Desarrollador de aplicaciones web', 'https://www.linkedin.com/in/nicolás-garcía-sampedro-docampo', 'nicolasgarciasampedrodocampo@gmail.com', '607896214'),
+(3, 'Chao An', 'Alarcón Chen', NULL, 'Desarrollador de Aplicaciones Web', 'https://www.linkedin.com/in/chao-alarc%C3%B3n/', 'chaoalarcon03@gmail.com', '689846699');
 
 -- --------------------------------------------------------
 
