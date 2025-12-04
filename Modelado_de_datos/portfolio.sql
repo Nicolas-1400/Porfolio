@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
+<<<<<<< HEAD
 -- Tiempo de generación: 04-12-2025 a las 09:34:06
+=======
+-- Tiempo de generación: 04-12-2025 a las 09:28:37
+>>>>>>> 0f19311 (Nueva base de datos)
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
