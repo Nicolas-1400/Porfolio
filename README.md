@@ -1,6 +1,6 @@
 # Portfolio Grupal
 
-![Preview.png]
+![Preview](Preview.png)
 
 
 Una plataforma de presentación profesional diseñada para exhibir las habilidades y proyectos de nuestro colectivo de desarrollo y diseño. Este proyecto fue construido para simular un entorno de trabajo real, utilizando un stack Node.js con un motor de plantillas para renderizado dinámico.
