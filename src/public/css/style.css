@@ -864,6 +864,43 @@ footer {
 /* ENVÍO DE FORMULARIO */
 /* ====================================================== */
 
+/* TÍTULO */
+.section-title-send {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+    animation: fadeIn 0.8s ease both;
+}
+
+/* MENSAJE DE ÉXITO */
+.success-message-send {
+    background: rgba(120, 255, 170, 0.15);
+    border: 1px solid rgba(120, 255, 170, 0.35);
+    color: #8affc4;
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-size: 1.05rem;
+    text-align: center;
+    max-width: 300px;
+    margin: 0 auto;
+    font-weight: 500;
+    animation: popIn 0.6s ease both;
+}
+
+/* ANIMACIONES */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes popIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
 .contact-container {
 	max-width: 600px;
 	width: 100%;
@@ -883,7 +920,7 @@ footer {
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	background-clip: text;
-} /* Mensaje de éxito */
+} 
 .success-message {
 	background: rgba(0, 212, 255, 0.1);
 	border: 1px solid rgba(0, 212, 255, 0.3);
@@ -907,11 +944,7 @@ footer {
 } 
 
 /* ====================================================== */
-/* ENVÍO DE FORMULARIO */
-/* ====================================================== */
-
-/* ====================================================== */
-/* CONTACT FORM — Premium & Interactivo */
+/* CONTACT FORM
 /* ====================================================== */
 .contact-container {
 	max-width: 600px;
