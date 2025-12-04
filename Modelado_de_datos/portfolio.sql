@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-12-2025 a las 14:00:01
+-- Tiempo de generación: 04-12-2025 a las 09:28:37
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -57,7 +57,12 @@ INSERT INTO `formulario` (`id`, `nombre`, `email`, `mensaje`) VALUES
 (16, 'Chao Alarcón Chen', 'chaoalarcon01@gmail.com', 'hola'),
 (17, 'Chao Alarcón Chen', 'chaoalarcon01@gmail.com', 'hola'),
 (18, 'Chao Alarcón Chen', 'chaoalarcon01@gmail.com', 'hola'),
-(19, 'Chao Alarcón Chen', 'chaoalarcon01@gmail.com', 'hola');
+(19, 'Chao Alarcón Chen', 'chaoalarcon01@gmail.com', 'hola'),
+(20, 'Chao Alarcón Chen', 'chaoalarcon01@gmail.com', 'hola'),
+(21, 'Chao Alarcón Chen', 'chaoalarcon01@gmail.com', 'hola'),
+(22, 'Chao Alarcón Chen', 'chaoalarcon01@gmail.com', 'hola'),
+(23, 'Chao Alarcón Chen', 'chaoalarcon01@gmail.com', 'hola'),
+(24, 'Chao Alarcón Chen', 'chaoalarcon01@gmail.com', 'hola');
 
 -- --------------------------------------------------------
 
@@ -326,7 +331,8 @@ ALTER TABLE `programadores`
   ADD UNIQUE KEY `email_18` (`email`),
   ADD UNIQUE KEY `email_19` (`email`),
   ADD UNIQUE KEY `email_20` (`email`),
-  ADD UNIQUE KEY `email_21` (`email`);
+  ADD UNIQUE KEY `email_21` (`email`),
+  ADD UNIQUE KEY `email_22` (`email`);
 
 --
 -- Indices de la tabla `programadores_idiomas`
@@ -372,7 +378,7 @@ ALTER TABLE `tecnologias`
 -- AUTO_INCREMENT de la tabla `formulario`
 --
 ALTER TABLE `formulario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de la tabla `idiomas`
