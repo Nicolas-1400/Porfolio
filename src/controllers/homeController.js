@@ -106,7 +106,8 @@ exports.detail = async (req, res) => {
 			programadorData.cvFile = cvFileExamples[id] || "/assets/default-CV.pdf";
 		}
 
-		res.render("programadores/detail", { programador: programadorData });
+		const title = `${programadorData.nombre} ${programadorData.apellidos}`;
+		res.render("programadores/detail", { programador: programadorData, title });
 	} catch (error) {
 		console.error("Error al cargar detalle del programador:", error);
 		res.status(500).send("Error al cargar la página");
