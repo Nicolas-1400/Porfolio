@@ -3,15 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
-<<<<<<< HEAD
-<<<<<<< HEAD
--- Tiempo de generación: 04-12-2025 a las 09:34:06
-=======
--- Tiempo de generación: 04-12-2025 a las 09:28:37
->>>>>>> 0f19311 (Nueva base de datos)
-=======
--- Tiempo de generación: 04-12-2025 a las 09:34:06
->>>>>>> 70966d0 (base de datos nueva)
+-- Tiempo de generación: 06-12-2025 a las 12:22:25
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -70,7 +62,10 @@ INSERT INTO `formulario` (`id`, `nombre`, `email`, `mensaje`) VALUES
 (21, 'Chao Alarcón Chen', 'chaoalarcon01@gmail.com', 'hola'),
 (22, 'Chao Alarcón Chen', 'chaoalarcon01@gmail.com', 'hola'),
 (23, 'Chao Alarcón Chen', 'chaoalarcon01@gmail.com', 'hola'),
-(24, 'Chao Alarcón Chen', 'chaoalarcon01@gmail.com', 'hola');
+(24, 'Chao Alarcón Chen', 'chaoalarcon01@gmail.com', 'hola'),
+(25, 'Test', 'test@example.com', 'Prueba desde script'),
+(26, 'Prueba', 'prueba@example.com', 'mensaje de prueba'),
+(27, 'Prueba', 'test@example.com', 'hola');
 
 -- --------------------------------------------------------
 
@@ -102,7 +97,6 @@ CREATE TABLE `programadores` (
   `id` int(11) NOT NULL,
   `nombre` varchar(255) NOT NULL,
   `apellidos` varchar(255) NOT NULL,
-  `imagen` varchar(60) DEFAULT NULL,
   `titulacion` varchar(255) DEFAULT NULL,
   `linkedin` varchar(255) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
@@ -113,10 +107,10 @@ CREATE TABLE `programadores` (
 -- Volcado de datos para la tabla `programadores`
 --
 
-INSERT INTO `programadores` (`id`, `nombre`, `apellidos`, `imagen`, `titulacion`, `linkedin`, `email`, `numeroTelefono`) VALUES
-(1, 'Álvaro', 'Santos Calvo', NULL, 'Desarrollador de aplicaciones web', 'https://www.linkedin.com/in/álvaro-santos-calvo', 'aalvar.s.c@gmail.com', '612345678'),
-(2, 'Nicolás', 'García-Sampedro Docampo', NULL, 'Desarrollador de aplicaciones web', 'https://www.linkedin.com/in/nicolás-garcía-sampedro-docampo', 'nicolasgarciasampedrodocampo@gmail.com', '607896214'),
-(3, 'Chao An', 'Alarcón Chen', NULL, 'Desarrollador de Aplicaciones Web', 'https://www.linkedin.com/in/chao-alarc%C3%B3n/', 'chaoalarcon03@gmail.com', '689846699');
+INSERT INTO `programadores` (`id`, `nombre`, `apellidos`, `titulacion`, `linkedin`, `email`, `numeroTelefono`) VALUES
+(1, 'Álvaro', 'Santos Calvo', 'Desarrollador de aplicaciones web', 'https://www.linkedin.com/in/álvaro-santos-calvo', 'aalvar.s.c@gmail.com', '662172105'),
+(2, 'Nicolás', 'García-Sampedro Docampo', 'Desarrollador de aplicaciones web', 'https://www.linkedin.com/in/nicolás-garcía-sampedro-docampo', 'nicolasgarciasampedrodocampo@gmail.com', '607896214'),
+(3, 'Chao An', 'Alarcón Chen', 'Desarrollador de Aplicaciones Web', 'https://www.linkedin.com/in/chao-alarc%C3%B3n/', 'chaoalarcon03@gmail.com', '689846699');
 
 -- --------------------------------------------------------
 
@@ -176,7 +170,19 @@ INSERT INTO `programadores_proyectos` (`id`, `programadorId`, `proyectoId`) VALU
 (13, 3, 6),
 (14, 3, 7),
 (15, 3, 2),
-(16, 3, 3);
+(16, 3, 3),
+(17, 3, 14),
+(18, 3, 15),
+(19, 2, 15),
+(20, 1, 15),
+(21, 2, 16),
+(22, 1, 17),
+(23, 3, 18),
+(24, 2, 18),
+(25, 1, 18),
+(26, 3, 19),
+(27, 2, 19),
+(28, 1, 19);
 
 -- --------------------------------------------------------
 
@@ -260,8 +266,14 @@ INSERT INTO `proyectos` (`id`, `titulo`, `descripcion`, `tecnologias`, `empresa`
 (3, 'Sitio web de \"OnStream\".', 'Landing page de presentación para la APK de Streaming multimedia OnStream.', 'HTML5, CSS3, GitHub, Netlify', 'Instituto Nebrija de Formación Profesional', '2025-03-01', 'https://onstreamweb.netlify.app/'),
 (4, 'Aventura Interactiva \"Warriors of Eazima\".', 'Aventura Interactiva realizada principalmente con el lenguaje Java. Sería un juego con una interfaz gráfica simple y con todo un desarrollo de personajes en la narrativa.', 'Java, GitHub, draw.io', 'Instituto Nebrija de Formación Profesional', '2025-06-01', 'https://github.com/ChaoAlarcon/Elige-Tu-Propia-Aventura-II'),
 (5, 'Dominó Digital.', 'Juego del dominó hecho en\r\nlenguaje java para jugar de 2 a 4 personas.\r\n', 'Java, GitHub, draw.io', 'Instituto Nebrija de Formación Profesional', '2025-04-01', 'https://github.com/Nicolas-1400/Domino1.5'),
-(6, 'Gestión de base de datos de un Hospital.', 'Mediante MySQL y Workbench, la gestión de la base de datos de un hospital.', 'MySQL, Workbench', 'Instituto Nebrija de Formación Profesional', '2025-01-01', NULL),
-(7, 'Plataforma de E-Learning \"NebriAcademy\".', 'Creación de una plataforma online de E-Learning siguiendo una\r\narquitectura cliente/Servidor limpia y cubriendo todas las\r\netapas necesarias: Toma de requisitos, prototipado,\r\npruebas y despliegue. Tecnologías de desarrollo iniciales:\r\nNode (Back) y React (Front).\r\n', 'HTML5, CSS3, Bootstrap, JavaScript, React, Node, SQL, GitHub', 'Instituto Nebrija de Formación Profesional', '2026-02-01', 'https://github.com/Nicolas-1400/NebriAcademy');
+(6, 'Gestión de base de datos de un Hospital.', 'Mediante MySQL y Workbench, la gestión de la base de datos de un hospital.', 'MySQL, Workbench', 'Instituto Nebrija de Formación Profesional', '2025-01-01', 'https://github.com/ChaoAlarcon/Hospital-Database'),
+(7, 'Plataforma de E-Learning \"NebriAcademy\".', 'Creación de una plataforma online de E-Learning siguiendo una\r\narquitectura cliente/Servidor limpia y cubriendo todas las\r\netapas necesarias: Toma de requisitos, prototipado,\r\npruebas y despliegue. Tecnologías de desarrollo iniciales:\r\nNode (Back) y React (Front).\r\n', 'HTML5, CSS3, Bootstrap, JavaScript, React, Node, SQL, GitHub', 'Instituto Nebrija de Formación Profesional', '2026-02-01', 'https://github.com/Nicolas-1400/NebriAcademy'),
+(14, 'Buscador de personajes de Dragon Ball.', 'Buscador de personajes basado en una API REST de Dragon Ball con filtros por nombre, raza y género.', 'HTML5, CSS3, JavaScript, Bootstrap, API REST, GitHub', 'Instituto Nebrija de Formación Profesional', '2025-06-01', 'https://github.com/ChaoAlarcon/Dragon-Ball-API'),
+(15, 'Portfolio Web de presentación de varios perfiles', 'Una plataforma de presentación profesional diseñada para exhibir las habilidades y proyectos de nuestro colectivo de desarrollo y diseño. Este proyecto fue construido para simular un entorno de trabajo real, utilizando un stack Node.js con un motor de plantillas para renderizado dinámico.', 'HTML5, CSS3, Bootstrap, JavaScript, Handlebars, Node, Express, MySQL, GitHub', 'Instituto Nebrija de Formación Profesional', '2025-12-10', 'https://github.com/Nicolas-1400/Porfolio'),
+(16, 'Sitio web \"Carnaval Brasil\"', 'Sitio web informativo sobre el Carnaval en Brasil.', 'HTML5, CSS3', 'Instituto Nebrija de Formación Profesional', '2025-03-01', NULL),
+(17, 'Sitio Web \"Álvaro\"', 'Description', 'HTML5, CSS3', 'Instituto Nebrija de Formación Profesional', '2025-03-01', NULL),
+(18, 'Proyecto Solidario de Aula TIC en Honduras', 'Diseño y despliegue de un aula TIC para la infancia en Honduras.', 'Cisco Packet Tracer, GitHub, draw.io', 'Instituto Nebrija de Formación Profesional', '2025-05-01', NULL),
+(19, 'Aventura Conversacional \"Fire Emblem\"', 'Aventura conversacional interactiva desarrollada con Java.', 'Java', 'Instituto Nebrija de Formación Profesional', '2025-01-01', NULL);
 
 -- --------------------------------------------------------
 
@@ -387,7 +399,7 @@ ALTER TABLE `tecnologias`
 -- AUTO_INCREMENT de la tabla `formulario`
 --
 ALTER TABLE `formulario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `idiomas`
@@ -411,7 +423,7 @@ ALTER TABLE `programadores_idiomas`
 -- AUTO_INCREMENT de la tabla `programadores_proyectos`
 --
 ALTER TABLE `programadores_proyectos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de la tabla `programadores_tecnologias`
@@ -423,7 +435,7 @@ ALTER TABLE `programadores_tecnologias`
 -- AUTO_INCREMENT de la tabla `proyectos`
 --
 ALTER TABLE `proyectos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `tecnologias`

@@ -1,3 +1,8 @@
+# Notas
+
+- Añadir botón para ir hacia atrás en la confirmación de envío de formulario.
+
+
 # Portfolio Grupal
 
 ![Preview](Preview.png)
@@ -26,41 +31,3 @@ Este proyecto fue desarrollado utilizando un stack **Full-Stack JavaScript (MEVN
 
 La estructura sigue un patrón modular típico de aplicaciones Express con vistas separadas:
 
-portfolio-api/
-├── package.json
-├── src/
-│   ├── app.js
-│   ├── database/
-│   │   └── connection.js
-│   ├── models/
-│   │   ├── Formulario.js
-│   │   ├── Idioma.js
-│   │   ├── Programador.js
-│   │   ├── ProgramadorIdioma.js
-│   │   ├── ProgramadorProyecto.js
-│   │   ├── ProgramadorTecnologia.js
-│   │   ├── Proyecto.js
-│   │   └── Tecnologia.js
-│   ├── controllers/
-│   │   ├── homeController.js
-│   │   ├── programadoresController.js
-│   │   ├── proyectosController.js
-│   │   └── formularioController.js
-│   ├── routes/
-│   │   ├── index.js
-│   │   ├── programadores.js
-│   │   ├── proyectos.js
-│   │   └── formulario.js
-│   └── views/
-│       ├── layouts/
-│       │   └── main.hbs
-│       ├── partials/
-│       │   └── _nav.hbs
-│       ├── index.hbs
-│       ├── programadores/
-│       │   ├── list.hbs
-│       │   └── detail.hbs
-│       ├── proyectos/
-│       │   └── list.hbs
-│       └── formulario.hbs
-└── .env (opcional)
