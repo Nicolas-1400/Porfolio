@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
+<<<<<<< HEAD
 -- Tiempo de generación: 06-12-2025 a las 12:22:25
+=======
+-- Tiempo de generación: 04-12-2025 a las 09:34:06
+>>>>>>> origin/Chao
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -62,10 +66,14 @@ INSERT INTO `formulario` (`id`, `nombre`, `email`, `mensaje`) VALUES
 (21, 'Chao Alarcón Chen', 'chaoalarcon01@gmail.com', 'hola'),
 (22, 'Chao Alarcón Chen', 'chaoalarcon01@gmail.com', 'hola'),
 (23, 'Chao Alarcón Chen', 'chaoalarcon01@gmail.com', 'hola'),
+<<<<<<< HEAD
 (24, 'Chao Alarcón Chen', 'chaoalarcon01@gmail.com', 'hola'),
 (25, 'Test', 'test@example.com', 'Prueba desde script'),
 (26, 'Prueba', 'prueba@example.com', 'mensaje de prueba'),
 (27, 'Prueba', 'test@example.com', 'hola');
+=======
+(24, 'Chao Alarcón Chen', 'chaoalarcon01@gmail.com', 'hola');
+>>>>>>> origin/Chao
 
 -- --------------------------------------------------------
 
@@ -97,6 +105,7 @@ CREATE TABLE `programadores` (
   `id` int(11) NOT NULL,
   `nombre` varchar(255) NOT NULL,
   `apellidos` varchar(255) NOT NULL,
+  `imagen` varchar(60) DEFAULT NULL,
   `titulacion` varchar(255) DEFAULT NULL,
   `linkedin` varchar(255) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
@@ -107,10 +116,17 @@ CREATE TABLE `programadores` (
 -- Volcado de datos para la tabla `programadores`
 --
 
+<<<<<<< HEAD
 INSERT INTO `programadores` (`id`, `nombre`, `apellidos`, `titulacion`, `linkedin`, `email`, `numeroTelefono`) VALUES
 (1, 'Álvaro', 'Santos Calvo', 'Desarrollador de aplicaciones web', 'https://www.linkedin.com/in/álvaro-santos-calvo', 'aalvar.s.c@gmail.com', '662172105'),
 (2, 'Nicolás', 'García-Sampedro Docampo', 'Desarrollador de aplicaciones web', 'https://www.linkedin.com/in/nicolás-garcía-sampedro-docampo', 'nicolasgarciasampedrodocampo@gmail.com', '607896214'),
 (3, 'Chao An', 'Alarcón Chen', 'Desarrollador de Aplicaciones Web', 'https://www.linkedin.com/in/chao-alarc%C3%B3n/', 'chaoalarcon03@gmail.com', '689846699');
+=======
+INSERT INTO `programadores` (`id`, `nombre`, `apellidos`, `imagen`, `titulacion`, `linkedin`, `email`, `numeroTelefono`) VALUES
+(1, 'Álvaro', 'Santos Calvo', NULL, 'Desarrollador de aplicaciones web', 'https://www.linkedin.com/in/álvaro-santos-calvo', 'aalvar.s.c@gmail.com', '612345678'),
+(2, 'Nicolás', 'García-Sampedro Docampo', NULL, 'Desarrollador de aplicaciones web', 'https://www.linkedin.com/in/nicolás-garcía-sampedro-docampo', 'nicolasgarciasampedrodocampo@gmail.com', '607896214'),
+(3, 'Chao An', 'Alarcón Chen', NULL, 'Desarrollador de Aplicaciones Web', 'https://www.linkedin.com/in/chao-alarc%C3%B3n/', 'chaoalarcon03@gmail.com', '689846699');
+>>>>>>> origin/Chao
 
 -- --------------------------------------------------------
 
@@ -399,7 +415,11 @@ ALTER TABLE `tecnologias`
 -- AUTO_INCREMENT de la tabla `formulario`
 --
 ALTER TABLE `formulario`
+<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+>>>>>>> origin/Chao
 
 --
 -- AUTO_INCREMENT de la tabla `idiomas`
