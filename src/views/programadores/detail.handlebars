@@ -1,33 +1,73 @@
 <section class="detalle-programador">
   <div class="tarjeta-programador">
-    <div class="rejilla-programador">
+    <div class="grid-programador">
       <aside class="programador-izquierda">
         {{#if programador.imagen}}
-          <img src="{{programador.imagen}}" alt="Foto de {{programador.nombre}}" class="imagen-programador">
+          <img
+            src="{{programador.imagen}}"
+            alt="Foto de {{programador.nombre}}"
+            class="imagen-programador"
+          />
         {{else}}
-          <div class="imagen-programador" style="background: var(--gradient-main); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">SIN IMAGEN</div>
+          <div
+            class="imagen-programador"
+            style=
+            "background: var(--gradient-main); 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            color: white; 
+            font-weight: bold;"
+          >SIN IMAGEN</div>
         {{/if}}
 
-        <div style="text-align:center; margin-top: var(--spacing-sm);">
+        <div style=
+        "text-align:center; 
+        margin-top: var(--spacing-sm);"
+        >
           {{#if programador.cvFile}}
-            <a href="{{programador.cvFile}}" class="btn-primary" download>Descargar CV</a>
+            <a
+              href="{{programador.cvFile}}"
+              class="btn-primary"
+              download
+            >Descargar CV</a>
           {{/if}}
         </div>
 
         {{#if programador.numeroTelefono}}
-          <div style="text-align:center; margin-top: var(--spacing-sm); color: var(--text-secondary);">
+          <div
+            style=
+            "text-align:center; 
+            margin-top: var(--spacing-sm); 
+            color: var(--text-secondary);"
+          >
             <p style="font-size: 0.95em;">📞 {{programador.numeroTelefono}}</p>
           </div>
         {{/if}}
 
-        <div class="contacto-programador" style="margin-top: var(--spacing-md); justify-content:center;">
-          {{#if programador.email}}<a href="mailto:{{programador.email}}" title="E-mail" class="contact-icon">✉️</a>{{/if}}
-          {{#if programador.linkedin}}<a href="{{programador.linkedin}}" target="_blank" title="LinkedIn" class="contact-icon">🔗</a>{{/if}}
+        <div
+          class="contacto-programador"
+          style=
+          "margin-top: var(--spacing-md); 
+          justify-content:center;"
+        >
+          {{#if programador.email}}<a
+              href="mailto:{{programador.email}}"
+              title="E-mail"
+              class="contact-icon"
+            >✉️</a>{{/if}}
+          {{#if programador.linkedin}}<a
+              href="{{programador.linkedin}}"
+              target="_blank"
+              title="LinkedIn"
+              class="contact-icon"
+            >🔗</a>{{/if}}
         </div>
       </aside>
 
       <div class="programador-derecha">
-        <h1 class="nombre-programador">{{programador.nombre}} {{programador.apellidos}}</h1>
+        <h1 class="nombre-programador">{{programador.nombre}}
+          {{programador.apellidos}}</h1>
         <p class="rol-programador">{{programador.titulacion}}</p>
 
         {{#if programador.cv}}
@@ -43,7 +83,9 @@
                   {{#each programador.Idiomas}}
                     <li class="item-habilidad">
                       <span class="nombre-habilidad">{{this.nombre}}</span>
-                      <span class="nivel-habilidad">{{this.programadores_idiomas.nivel}}</span>
+                      <span
+                        class="nivel-habilidad"
+                      >{{this.programadores_idiomas.nivel}}</span>
                     </li>
                   {{/each}}
                 </ul>
@@ -54,12 +96,16 @@
           {{#if programador.Tecnologias}}
             {{#if programador.Tecnologias.length}}
               <div class="seccion-habilidades">
-                <h3 class="titulo-habilidades titulo-tecnologias">Tecnologías</h3>
+                <h3
+                  class="titulo-habilidades titulo-tecnologias"
+                >Tecnologías</h3>
                 <ul class="lista-habilidades">
                   {{#each programador.Tecnologias}}
                     <li class="item-habilidad">
                       <span class="nombre-habilidad">{{this.nombre}}</span>
-                      <span class="nivel-habilidad">{{this.programadores_tecnologias.nivel}}</span>
+                      <span
+                        class="nivel-habilidad"
+                      >{{this.programadores_tecnologias.nivel}}</span>
                     </li>
                   {{/each}}
                 </ul>
@@ -75,11 +121,17 @@
                   {{#each programador.Proyectos}}
                     <li class="item-proyecto">
                       <div class="titulo-proyecto-pequeno">{{this.titulo}}</div>
-                      {{#if this.empresa}}<div class="empresa-proyecto">{{this.empresa}}</div>{{/if}}
-                      {{#if this.descripcion}}<div class="meta-proyecto">{{this.descripcion}}</div>{{/if}}
-                      {{#if this.enlace}}<div class="meta-proyecto"><a href="{{this.enlace}}" target="_blank">Enlace</a></div>{{/if}}
-                      {{#if this.programadores_proyectos}}
-                      {{/if}}
+                      {{#if this.empresa}}<div
+                          class="empresa-proyecto"
+                        >{{this.empresa}}</div>{{/if}}
+                      {{#if this.descripcion}}<div
+                          class="meta-proyecto"
+                        >{{this.descripcion}}</div>{{/if}}
+                      {{#if this.enlace}}<div class="meta-proyecto"><a
+                            href="{{this.enlace}}"
+                            target="_blank"
+                          >Enlace</a></div>{{/if}}
+                      {{#if this.programadores_proyectos}}{{/if}}
                     </li>
                   {{/each}}
                 </ul>

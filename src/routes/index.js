@@ -1,10 +1,9 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const controladorInicio = require('../controllers/homeController');
+const homeController = require("../controllers/homeController");
 
-
-router.get('/', controladorInicio.inicio);
-router.post('/contacto', controladorInicio.enviarFormulario);
-router.get('/programadores/:id', controladorInicio.detalle);
+router.get("/", homeController.inicio);
+router.post("/contacto", homeController.enviarFormulario);
+router.get("/programadores/:id", homeController.detalle);
 
 module.exports = router;

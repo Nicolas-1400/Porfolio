@@ -2,8 +2,10 @@
 <ul>
   {{#each programadores}}
     <li>
-      <a href="/programadores/{{this.id}}">{{this.nombre}} {{this.apellidos}}</a>
-      — {{this.titulacion}}
+      <a href="/programadores/{{this.id}}">{{this.nombre}}
+        {{this.apellidos}}</a>
+      —
+      {{this.titulacion}}
     </li>
   {{/each}}
 </ul>

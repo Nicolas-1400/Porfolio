@@ -1,8 +1,8 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('../database/conexion');
+const { DataTypes } = require("sequelize");
+const sequelize = require("../database/conexion");
 
 module.exports = sequelize.define(
-  'formulario',
+  "formulario",
   {
     nombre: { type: DataTypes.STRING, allowNull: false },
     email: { type: DataTypes.STRING, allowNull: false },

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-12-2025 a las 13:48:11
+-- Tiempo de generación: 07-12-2025 a las 17:50:11
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -275,12 +275,12 @@ INSERT INTO `proyectos` (`id`, `titulo`, `descripcion`, `tecnologias`, `empresa`
 (14, 'Buscador de personajes de Dragon Ball', 'Buscador de personajes basado en una API REST de Dragon Ball con filtros por nombre, raza y género.', 'HTML5, CSS3, JavaScript, Bootstrap, API REST, GitHub', 'Instituto Nebrija de Formación Profesional', '2025-06-01', 'https://github.com/ChaoAlarcon/Dragon-Ball-API'),
 (15, 'Portfolio Web de presentación de varios perfiles', 'Una plataforma de presentación profesional diseñada para exhibir las habilidades y proyectos de nuestro colectivo de desarrollo y diseño. Este proyecto fue construido para simular un entorno de trabajo real, utilizando un stack Node.js con un motor de plantillas para renderizado dinámico.', 'HTML5, CSS3, Bootstrap, JavaScript, Handlebars, Node, Express, MySQL, GitHub', 'Instituto Nebrija de Formación Profesional', '2025-12-10', 'https://github.com/Nicolas-1400/Porfolio'),
 (16, 'Sitio web \"Carnaval Brasil\"', 'Sitio web informativo sobre el Carnaval en Brasil.', 'HTML5, CSS3', 'Instituto Nebrija de Formación Profesional', '2025-03-01', 'https://drive.google.com/drive/folders/178f9StSW3dfPCH9HtxwD3VUE9Yqn2oZ7?usp=sharing'),
-(17, 'Sitio Web \"Torneo Pokémon\"', 'Description', 'HTML5, CSS3', 'Instituto Nebrija de Formación Profesional', '2025-03-01', 'https://drive.google.com/drive/folders/1_ZcJUUaMVgHHVjpDp7CCwRyWQVRjEWaQ?usp=sharing'),
+(17, 'Sitio Web \"Torneo Pokémon\"', 'Sitio web informativo sobre un torneo de Pokemon.', 'HTML5, CSS3', 'Instituto Nebrija de Formación Profesional', '2025-03-01', 'https://drive.google.com/drive/folders/1_ZcJUUaMVgHHVjpDp7CCwRyWQVRjEWaQ?usp=sharing'),
 (18, 'Proyecto Solidario de Aula TIC en Honduras', 'Diseño y despliegue de un aula TIC para la infancia en Honduras.', 'Cisco Packet Tracer, GitHub, draw.io', 'Instituto Nebrija de Formación Profesional', '2025-05-01', 'https://drive.google.com/drive/folders/1JGFb75UDOVPMKVMgC5jEjiv_1wt4PSBM?usp=sharing'),
 (19, 'Aventura Conversacional \"Fire Emblem\"', 'Aventura conversacional interactiva desarrollada con Java.', 'Java', 'Instituto Nebrija de Formación Profesional', '2025-01-01', 'https://drive.google.com/drive/folders/12SiehDkQ96Zj3hxzWQoEe-K6q9iIwXYQ?usp=sharing'),
-(20, 'Sitio informativo \"Shazam\"', 'Sitio web de una aplicación de móvil.', 'HTML5, CSS3', 'Instituto Nebrija de Formación Profesional', '2025-03-12', 'https://drive.google.com/drive/folders/1wZeCtVyPf-oCr34h1rHC60h3G-zaoSBn?usp=sharing'),
-(21, 'Sitio informativo \"Chat GPT\"', 'Sitio web de una aplicación de móvil.', 'HTML5, CSS3', 'Instituto Nebrija de Formación Profesional', '2025-03-12', 'https://drive.google.com/drive/folders/1q3zYwyRGdk27n8GUJLkA-uWh-v1G9Pwj?usp=sharing'),
-(22, 'Sitio informativo \"Pokémon GO\"', 'Sitio web de una aplicación de móvil.', 'HTML5, CSS3', 'Instituto Nebrija de Formación Profesional', '2025-03-12', 'https://drive.google.com/drive/folders/160PgwcpJhTElFmyRKAD1jqrKvKUrRmjz?usp=sharing');
+(20, 'Sitio informativo \"Shazam\"', 'Sitio web de la aplicación móvil Shazam.', 'HTML5, CSS3', 'Instituto Nebrija de Formación Profesional', '2025-03-12', 'https://drive.google.com/drive/folders/1wZeCtVyPf-oCr34h1rHC60h3G-zaoSBn?usp=sharing'),
+(21, 'Sitio informativo \"Chat GPT\"', 'Sitio web de la aplicación móvil de ChatGPT.', 'HTML5, CSS3', 'Instituto Nebrija de Formación Profesional', '2025-03-12', 'https://drive.google.com/drive/folders/1q3zYwyRGdk27n8GUJLkA-uWh-v1G9Pwj?usp=sharing'),
+(22, 'Sitio informativo \"Pokémon GO\"', 'Sitio web de la aplicación móvil Pokemon GO.', 'HTML5, CSS3', 'Instituto Nebrija de Formación Profesional', '2025-03-12', 'https://drive.google.com/drive/folders/160PgwcpJhTElFmyRKAD1jqrKvKUrRmjz?usp=sharing');
 
 -- --------------------------------------------------------
 
