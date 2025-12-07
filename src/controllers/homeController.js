@@ -4,153 +4,117 @@ const Tecnologia = require("../models/Tecnologias");
 const Proyecto = require("../models/Proyecto");
 const Formulario = require("../models/Formulario");
 
-// INICIO
-exports.index = async (req, res) => {
-	try {
-		const proyectos = await Proyecto.findAll();
-		const programadores = await Programador.findAll();
+// Funciones de formato para preparar datos antes de renderizar
+function formatearProyecto(p) {
+	const techs = p.tecnologias ? String(p.tecnologias).split(",").map(t => t.trim()).filter(Boolean) : [];
+	const fecha = p.fecha instanceof Date ? p.fecha.toISOString().split("T")[0] : (p.fecha ? String(p.fecha) : "");
+	return {
+	nombreProyecto: p.titulo || p.nombreProyecto || "",
+	empresa: p.empresa || "",
+	fecha,
+	descripcion: p.descripcion || "",
+	tecnologias: techs,
+	enlace: p.enlace || "",
+	};
+}
 
-		// Transformar proyectos para la plantilla
-		const projects = proyectos.map((p) => {
-			// 'tecnologias' puede ser una cadena separada por comas
-			const techs = p.tecnologias
-				? String(p.tecnologias)
-						.split(",")
-						.map((t) => t.trim())
-						.filter(Boolean)
-				: [];
+function resumenProgramador(u) {
+	return {
+	id: u.id || "",
+	nombre: u.nombre || "",
+	apellidos: u.apellidos || "",
+	rol: u.titulacion || "",
+	email: u.email || "",
+	linkedin: u.linkedin || "",
+	cv: u.cv || "",
+	};
+}
 
-			// Formatear fecha (si es Date o string)
-			let fecha = "";
-			if (p.fecha) {
-				if (p.fecha instanceof Date) {
-					fecha = p.fecha.toISOString().split("T")[0];
-				} else {
-					fecha = String(p.fecha);
-				}
-			}
+// Página principal
+exports.inicio = async (req, res) => {
+    try {
+	const proyectos = await Proyecto.findAll();
+	const programadores = await Programador.findAll();
 
-			return {
-				nombreProyecto: p.titulo || p.nombreProyecto || "",
-				fecha,
-				descripcion: p.descripcion || "",
-				tecnologias: techs,
-				enlace: p.enlace || "",
-			};
-		});
+	const proyectosFormateados = proyectos.map(formatearProyecto);
+	const miembrosEquipo = programadores.map(resumenProgramador);
 
-		// Transformar programadores para la plantilla
-		const teamMembers = programadores.map((u) => ({
-			id: u.id || "",
-			nombre: u.nombre || "",
-			apellidos: u.apellidos || "",
-			rol: u.titulacion || "",
-			e_mail: u.email || "",
-			linkedin: u.linkedin || "",
-			cv: u.cv || "",
-		}));
-
-		res.render("home", {
-			title: "Grupo Portfolio",
-			projects,
-			teamMembers,
-		});
-	} catch (error) {
-		console.error("Error al cargar la página de inicio:", error);
-		res.render("home", {
-			title: "Grupo Portfolio",
-			projects: [],
-			teamMembers: [],
-		});
-	}
+	res.render("home", { title: "Grupo Portfolio", proyectos: proyectosFormateados, miembrosEquipo });
+    } catch (error) {
+	console.error("Error al cargar la página de inicio:", error);
+	res.render("home", { title: "Grupo Portfolio", proyectos: [], miembrosEquipo: [] });
+    }
 };
 
-// PROGRAMADORES
-exports.list = async (req, res) => {
+// Lista de programadores
+exports.listaProgramadores = async (req, res) => {
 	const programadores = await Programador.findAll();
 	res.render("programadores/list", { programadores });
 };
 
-exports.detail = async (req, res) => {
-	try {
-		const id = req.params.id;
+// Detalle de un programador
+exports.detalle = async (req, res) => {
+    try {
+	const id = req.params.id;
+	const programador = await Programador.findByPk(id, {
+	    include: [
+		{ model: Idioma, as: "Idiomas", through: { attributes: ["nivel"] } },
+		{ model: Tecnologia, as: "Tecnologias", through: { attributes: ["nivel"] } },
+		{ model: Proyecto, as: "Proyectos" },
+	    ],
+	});
 
-		const programador = await Programador.findByPk(id, {
-			include: [
-				{ model: Idioma, as: "Idiomas", through: { attributes: ["nivel"] } },
-				{ model: Tecnologia, as: "Tecnologias", through: { attributes: ["nivel"] } },
-				{ model: Proyecto, as: "Proyectos" },
-			],
-		});
+	if (!programador) return res.status(404).send("No encontrado");
 
-		if (!programador) return res.status(404).send("No encontrado");
+	const data = programador.toJSON ? programador.toJSON() : JSON.parse(JSON.stringify(programador));
 
-		const programadorData = programador.toJSON ? programador.toJSON() : JSON.parse(JSON.stringify(programador));
+	// Valores por defecto
+	const defaultCv = {
+	    1: "Soy una persona trabajadora y responsable...",
+	    2: "Me considero una persona comprometida...",
+	    3: "Soy un estudiante de desarrollo de aplicaciones web...",
+	};
+	if (!data.cv) data.cv = defaultCv[id] || defaultCv[1];
 
-		if (!programadorData.cv) {
-			const cv = {
-				1: `Soy una persona trabajadora y responsable, con sólidos conocimientos de programación y alto nivel de inglés, enfocado en la resolución eficaz de los problemas que surgen para alcanzar mis objetivos. Tengo un carácter serio, lo que me permite asumir retos con disciplina y mantener la integridad en mis acciones. Tengo una mentalidad organizada, orientada a la mejora continua y me adapto con facilidad a diferentes contextos, manteniendo siempre una actitud proactiva y colaborativa.`,
-				2: `Me considero una persona comprometida, con una sólida formación en programación y una clara orientación hacia la resolución efectiva de problemas para cumplir los objetivos establecidos. Tengo un carácter extrovertido y no me cuesta adaptarme para trabajar en equipo. Busco seguir desarrollándome profesionalmente en un entorno donde pueda aportar mis conocimientos, asumir nuevos retos y seguir creciendo tanto a nivel técnico como personal.`,
-				3: `Soy un estudiante de desarrollo de aplicaciones web con un buen manejo de diversos lenguajes de programación y programas de Adobe como Photoshop, Premiere Pro, After Effects y Lightroom. Soy una persona creativa, positiva y comunicativa, orientada al público. Apasionada por tecnología, fotografía, diseño, viajes y deportes. Comprometida con el crecimiento personal y profesional.`,
-			};
-			programadorData.cv = cv[id] || cv[1];
-		}
+	const defaultImages = { 1: "/assets/Álvaro.jpg", 2: "/assets/Nicolás.jpg", 3: "/assets/Chao.jpg" };
+	if (!data.imagen) data.imagen = defaultImages[id] || "/assets/perfil-default.jpg";
 
-		if (!programadorData.imagen) {
-			const imagen = { 1: "/assets/Álvaro.jpg", 2: "/assets/Nicolás.jpg", 3: "/assets/Chao.jpg" };
-			programadorData.imagen = imagen[id] || "/assets/perfil-default.jpg";
-		}
+	const defaultCvFile = { 1: "/assets/Álvaro-CV.pdf", 2: "/assets/Nicolás-CV.pdf", 3: "/assets/Chao-CV.pdf" };
+	if (!data.cvFile) data.cvFile = defaultCvFile[id] || "/assets/default-CV.pdf";
 
-		if (!programadorData.cvFile) {
-			const cvFileExamples = { 1: "/assets/Álvaro-CV.pdf", 2: "/assets/Nicolás-CV.pdf", 3: "/assets/Chao-CV.pdf" };
-			programadorData.cvFile = cvFileExamples[id] || "/assets/default-CV.pdf";
-		}
-
-		const title = `${programadorData.nombre} ${programadorData.apellidos}`;
-		res.render("programadores/detail", { programador: programadorData, title });
-	} catch (error) {
-		console.error("Error al cargar detalle del programador:", error);
-		res.status(500).send("Error al cargar la página");
-	}
+	const title = `${data.nombre} ${data.apellidos}`;
+	res.render("programadores/detail", { programador: data, title });
+    } catch (error) {
+	console.error("Error al cargar detalle del programador:", error);
+	res.status(500).send("Error al cargar la página");
+    }
 };
 
-// PROYECTOS
-exports.listProyectos = async (req, res) => {
+// Proyectos
+exports.listaProyectos = async (req, res) => {
 	const proyectos = await Proyecto.findAll();
 	res.render("proyectos/list", { proyectos });
 };
 
-// FORMULARIO
-exports.form = (req, res) => {
+// Formulario
+exports.formulario = (req, res) => {
 	res.render("formulario");
 };
 
-exports.submit = async (req, res) => {
-	try {
-		const { nombre, email, mensaje } = req.body;
-		console.log("📝 Datos recibidos del formulario:", {
-			nombre,
-			email,
-			mensaje,
-		});
+exports.enviarFormulario = async (req, res) => {
+    try {
+	const { nombre, email, mensaje } = req.body;
+	console.log("Datos recibidos:", { nombre, email, mensaje });
 
-		if (!nombre || !email || !mensaje) {
-			return res.render("formulario", {
-				error: "Todos los campos son obligatorios",
-			});
-		}
-
-		const formularioGuardado = await Formulario.create({
-			nombre,
-			email,
-			mensaje,
-		});
-		console.log("✓ Formulario guardado en BD:", formularioGuardado.toJSON());
-		res.render("formulario", { success: true });
-	} catch (error) {
-		console.error("✗ Error al guardar formulario:", error);
-		res.render("formulario", {
-			error: "Error al enviar el formulario. Intenta más tarde.",
-		});
+	if (!nombre || !email || !mensaje) {
+		return res.render("formulario", { error: "Todos los campos son obligatorios" });
 	}
+
+	const saved = await Formulario.create({ nombre, email, mensaje });
+	console.log("Formulario guardado:", saved.toJSON());
+	res.render("formulario", { exito: true });
+    } catch (error) {
+	console.error("Error al guardar formulario:", error);
+	res.render("formulario", { error: "Error al enviar el formulario. Intenta más tarde." });
+    }
 };

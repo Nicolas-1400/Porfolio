@@ -1,7 +1,8 @@
 const express = require("express");
-const exhbs = require("express-handlebars");
+const expressHandlebars = require("express-handlebars");
 const sequelize = require("./database/conexion");
-const routes = require("./routes/index");
+const rutas = require("./routes/index");
+const path = require("path");
 
 // Cargar todos los modelos ANTES de sincronizar
 require("./models/Formulario");
@@ -14,38 +15,41 @@ require("./models/ProgramadorProyecto");
 require("./models/ProgramadorTecnologia");
 
 // Cargar las asociaciones
-require("./models/associations");
+require("./models/Asociaciones");
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
-// Middleware para parsear datos del formulario
+// Middlewares para leer formularios y JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("public"));
+// Servir archivos estáticos desde la carpeta public
+app.use(express.static(path.join(__dirname, "public")));
 
-
-// Configurar Handlebars (apuntando a la carpeta 'views')
-app.set("views", "./views");
+// Configurar Handlebars (vistas)
+app.set("views", path.join(__dirname, "views"));
 app.engine(
 	".handlebars",
-	exhbs.engine({
+	expressHandlebars.engine({
 		defaultLayout: "main",
-		layoutsDir: app.get("views") + "/layouts",
+		layoutsDir: path.join(__dirname, "views", "layouts"),
 		extname: ".handlebars",
 	})
 );
-// Configuración de Handlebars
 app.set("view engine", "handlebars");
 
-// Usar rutas
-app.use("/", routes);
+// Rutas
+app.use("/", rutas);
 
-// Sincronizar BD e iniciar servidor
-sequelize.sync({ alter: false }).then(() => {
-	console.log("✓ Base de datos sincronizada");
-	app.listen(3000, () => {
-		console.log("✓ Servidor ejecutándose en http://localhost:3000");
+// Sincronizar base de datos y arrancar servidor
+sequelize
+	.sync({ alter: false })
+	.then(() => {
+		console.log("✓ Base de datos sincronizada");
+		app.listen(PORT, () => {
+			console.log(`✓ Servidor ejecutándose en http://localhost:${PORT}`);
+		});
+	})
+	.catch((err) => {
+		console.error("✗ Error al sincronizar la base de datos:", err);
 	});
-}).catch(err => {
-	console.error("✗ Error al sincronizar la base de datos:", err);
-});

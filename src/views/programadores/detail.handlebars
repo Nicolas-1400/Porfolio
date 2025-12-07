@@ -1,11 +1,11 @@
-<section class="programmer-detail">
-  <div class="programmer-card">
-    <div class="programmer-grid" style="display:flex; gap:var(--spacing-lg); align-items:flex-start;">
-      <aside class="programmer-left" style="flex:0 0 260px;">
+<section class="detalle-programador">
+  <div class="tarjeta-programador">
+    <div class="rejilla-programador">
+      <aside class="programador-izquierda">
         {{#if programador.imagen}}
-          <img src="{{programador.imagen}}" alt="Foto de {{programador.nombre}}" class="programmer-img">
+          <img src="{{programador.imagen}}" alt="Foto de {{programador.nombre}}" class="imagen-programador">
         {{else}}
-          <div class="programmer-img" style="background: var(--gradient-main); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">SIN IMAGEN</div>
+          <div class="imagen-programador" style="background: var(--gradient-main); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">SIN IMAGEN</div>
         {{/if}}
 
         <div style="text-align:center; margin-top: var(--spacing-sm);">
@@ -14,30 +14,36 @@
           {{/if}}
         </div>
 
-        <div class="programmer-contact" style="margin-top: var(--spacing-md); justify-content:center;">
+        {{#if programador.numeroTelefono}}
+          <div style="text-align:center; margin-top: var(--spacing-sm); color: var(--text-secondary);">
+            <p style="font-size: 0.95em;">📞 {{programador.numeroTelefono}}</p>
+          </div>
+        {{/if}}
+
+        <div class="contacto-programador" style="margin-top: var(--spacing-md); justify-content:center;">
           {{#if programador.email}}<a href="mailto:{{programador.email}}" title="E-mail" class="contact-icon">✉️</a>{{/if}}
           {{#if programador.linkedin}}<a href="{{programador.linkedin}}" target="_blank" title="LinkedIn" class="contact-icon">🔗</a>{{/if}}
         </div>
       </aside>
 
-      <div class="programmer-right" style="flex:1;">
-        <h1 class="programmer-name">{{programador.nombre}} {{programador.apellidos}}</h1>
-        <p class="programmer-role">{{programador.titulacion}}</p>
+      <div class="programador-derecha">
+        <h1 class="nombre-programador">{{programador.nombre}} {{programador.apellidos}}</h1>
+        <p class="rol-programador">{{programador.titulacion}}</p>
 
         {{#if programador.cv}}
-          <p class="programmer-cv">{{programador.cv}}</p>
+          <p class="cv-programador">{{programador.cv}}</p>
         {{/if}}
 
-        <div class="programmer-skills">
+        <div class="habilidades-programador">
           {{#if programador.Idiomas}}
             {{#if programador.Idiomas.length}}
-              <div class="skills-section">
-                <h3 class="skills-title language-title">Idiomas</h3>
-                <ul class="skills-list">
+              <div class="seccion-habilidades">
+                <h3 class="titulo-habilidades titulo-idiomas">Idiomas</h3>
+                <ul class="lista-habilidades">
                   {{#each programador.Idiomas}}
-                    <li class="skill-item">
-                      <span class="skill-name">{{this.nombre}}</span>
-                      <span class="skill-level">{{this.programadores_idiomas.nivel}}</span>
+                    <li class="item-habilidad">
+                      <span class="nombre-habilidad">{{this.nombre}}</span>
+                      <span class="nivel-habilidad">{{this.programadores_idiomas.nivel}}</span>
                     </li>
                   {{/each}}
                 </ul>
@@ -47,13 +53,13 @@
 
           {{#if programador.Tecnologias}}
             {{#if programador.Tecnologias.length}}
-              <div class="skills-section">
-                <h3 class="skills-title tech-title">Tecnologías</h3>
-                <ul class="skills-list">
+              <div class="seccion-habilidades">
+                <h3 class="titulo-habilidades titulo-tecnologias">Tecnologías</h3>
+                <ul class="lista-habilidades">
                   {{#each programador.Tecnologias}}
-                    <li class="skill-item">
-                      <span class="skill-name">{{this.nombre}}</span>
-                      <span class="skill-level">{{this.programadores_tecnologias.nivel}}</span>
+                    <li class="item-habilidad">
+                      <span class="nombre-habilidad">{{this.nombre}}</span>
+                      <span class="nivel-habilidad">{{this.programadores_tecnologias.nivel}}</span>
                     </li>
                   {{/each}}
                 </ul>
@@ -63,14 +69,15 @@
 
           {{#if programador.Proyectos}}
             {{#if programador.Proyectos.length}}
-              <div class="skills-section projects-section-detail">
-                <h3 class="skills-title project-title">Proyectos</h3>
-                <ul class="projects-list">
+              <div class="seccion-habilidades seccion-proyectos-detalle">
+                <h3 class="titulo-habilidades titulo-proyecto">Proyectos</h3>
+                <ul class="lista-proyectos">
                   {{#each programador.Proyectos}}
-                    <li class="project-item">
-                      <div class="project-title-small">{{this.titulo}}</div>
-                      {{#if this.descripcion}}<div class="project-meta">{{this.descripcion}}</div>{{/if}}
-                      {{#if this.enlace}}<div class="project-meta"><a href="{{this.enlace}}" target="_blank">Enlace</a></div>{{/if}}
+                    <li class="item-proyecto">
+                      <div class="titulo-proyecto-pequeno">{{this.titulo}}</div>
+                      {{#if this.empresa}}<div class="empresa-proyecto">{{this.empresa}}</div>{{/if}}
+                      {{#if this.descripcion}}<div class="meta-proyecto">{{this.descripcion}}</div>{{/if}}
+                      {{#if this.enlace}}<div class="meta-proyecto"><a href="{{this.enlace}}" target="_blank">Enlace</a></div>{{/if}}
                       {{#if this.programadores_proyectos}}
                       {{/if}}
                     </li>

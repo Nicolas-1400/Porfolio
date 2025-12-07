@@ -1,8 +1,8 @@
-<section id="hero" class="hero-section">
+<section id="hero" class="seccion-principal">
 	<img
 		src="/assets/Grupo25.jpg"
 		alt="Foto del equipo"
-		class="team-profile-img img-fluid rounded-circle mb-3"
+		class="imagen-equipo-perfil img-fluid rounded-circle mb-3"
 	/>
 	<h1>Grupo Portfolio</h1>
 	<p>Un equipo de 3 especialistas en desarrollo y diseño, convirtiendo ideas
@@ -10,35 +10,36 @@
 	<a href="#proyectos" class="btn-primary">Ver Nuestro Trabajo</a>
 </section>
 
-<section id="proyectos" class="projects-section">
+<section id="proyectos" class="seccion-proyectos">
 	<h2>Nuestros Proyectos</h2>
-	<div class="projects-grid">
-		{{#each projects}}
-			<div class="project-card">
-				<h3 class="project-title">{{nombreProyecto}}</h3>
-				<p class="project-date">{{fecha}}</p>
-				<p class="project-description">{{descripcion}}</p>
-				<div class="tech-list">
+	<div class="rejilla-proyectos">
+		{{#each proyectos}}
+			<div class="tarjeta-proyecto">
+				<h3 class="titulo-proyecto">{{nombreProyecto}}</h3>
+				{{#if empresa}}<p class="empresa-proyecto">{{empresa}}</p>{{/if}}
+				<p class="fecha-proyecto">{{fecha}}</p>
+				<p class="descripcion-proyecto">{{descripcion}}</p>
+				<div class="lista-tecnologias">
 					{{#each tecnologias}}
-						<span class="tech-badge">{{this}}</span>
+						<span class="insignia-tecnologia">{{this}}</span>
 					{{/each}}
 				</div>
-				<a href="{{enlace}}" target="_blank" class="project-link">Visitar
+				<a href="{{enlace}}" target="_blank" class="enlace-proyecto">Visitar
 					Proyecto →</a>
 			</div>
 		{{/each}}
 	</div>
 </section>
 
-<section id="nosotros" class="team-section">
+<section id="nosotros" class="seccion-equipo">
 	<h2>El Equipo</h2>
-	<div class="team-grid">
-		{{#each teamMembers}}
-			<div class="team-card">
-				<h3 class="team-name"><a href="/programadores/{{id}}" class="team-name-link">{{nombre}} {{apellidos}}</a></h3>
-				<p class="team-role">{{rol}}</p>
-				<div class="team-contact">
-					<a href="mailto:{{e_mail}}" title="E-mail">✉️</a>
+	<div class="rejilla-equipo">
+		{{#each miembrosEquipo}}
+			<div class="tarjeta-equipo">
+				<h3 class="nombre-equipo"><a href="/programadores/{{id}}" class="enlace-nombre-equipo">{{nombre}} {{apellidos}}</a></h3>
+				<p class="rol-equipo">{{rol}}</p>
+				<div class="contacto-equipo">
+					<a href="mailto:{{email}}" title="E-mail">✉️</a>
 					<a href="{{linkedin}}" target="_blank" title="LinkedIn">🔗</a>
 					<a href="/assets/{{nombre}}-CV.pdf" download="{{nombre}}-CV.pdf" title="Descargar CV">📄</a>
 				</div>
@@ -47,7 +48,7 @@
 	</div>
 </section>
 
-<section id="contacto" class="contact-section">
+<section id="contacto" class="seccion-contacto">
 	<h2>Contacta con Nosotros</h2>
 	<div class="row justify-content-center">
 		<div class="col-lg-6 col-md-8 col-sm-10">
@@ -55,7 +56,7 @@
 			<form
 				action="/contacto"
 				method="POST"
-				class="contact-form p-4 rounded-3 shadow-lg"
+				class="formulario-contacto p-4 rounded-3 shadow-lg"
 			>
 				{{! Clases de Bootstrap y personalizadas }}
 				<div class="mb-3">
@@ -85,7 +86,7 @@
 						required
 					></textarea>
 				</div>
-				<button type="submit" class="btn btn-primary w-100 btn-submit">
+				<button type="submit" class="btn btn-primary w-100 boton-enviar">
 					Enviar Mensaje
 				</button>
 			</form>
