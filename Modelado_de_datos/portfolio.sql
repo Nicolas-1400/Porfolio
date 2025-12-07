@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-12-2025 a las 17:50:11
+-- Tiempo de generación: 07-12-2025 a las 19:31:20
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -39,34 +39,9 @@ CREATE TABLE `formulario` (
 --
 
 INSERT INTO `formulario` (`id`, `nombre`, `email`, `mensaje`) VALUES
-(1, '', '', ''),
-(2, '', '', ''),
-(3, '', '', ''),
-(4, 'Sálocin', 'salocin@ejemplo.com', 'Esto es una prueba'),
-(5, 'a', 'a@aaaaaa', 'abcd'),
-(6, 'Chao Alarcón', 'chaoalarcon01@gmail.com', 'afafa'),
-(7, 'Chao Alarcón', 'chaoalarcon01@gmail.com', 'afafa'),
-(8, 'Chao Alarcón', 'chaoalarcon01@gmail.com', 'afafa'),
-(9, 'Chao Alarcón', 'chaoalarcon01@gmail.com', 'afafa'),
-(10, 'Chao Alarcón', 'chaoalarcon01@gmail.com', 'afafa'),
-(11, 'Chao Alarcón', 'chaoalarcon01@gmail.com', 'afafa'),
-(12, 'Chao Alarcón', 'chaoalarcon01@gmail.com', 'afafa'),
-(13, 'Chao Alarcón', 'chaoalarcon01@gmail.com', 'afafa'),
-(14, 'Chao Alarcón Chen', 'chaoalarcon01@gmail.com', 'GRGRGR'),
-(15, 'Chao Alarcón Chen', 'chaoalarcon01@gmail.com', 'GRGRGR'),
 (16, 'Chao Alarcón Chen', 'chaoalarcon01@gmail.com', 'hola'),
-(17, 'Chao Alarcón Chen', 'chaoalarcon01@gmail.com', 'hola'),
-(18, 'Chao Alarcón Chen', 'chaoalarcon01@gmail.com', 'hola'),
-(19, 'Chao Alarcón Chen', 'chaoalarcon01@gmail.com', 'hola'),
-(20, 'Chao Alarcón Chen', 'chaoalarcon01@gmail.com', 'hola'),
-(21, 'Chao Alarcón Chen', 'chaoalarcon01@gmail.com', 'hola'),
-(22, 'Chao Alarcón Chen', 'chaoalarcon01@gmail.com', 'hola'),
-(23, 'Chao Alarcón Chen', 'chaoalarcon01@gmail.com', 'hola'),
 (24, 'Chao Alarcón Chen', 'chaoalarcon01@gmail.com', 'hola'),
-(25, 'Test', 'test@example.com', 'Prueba desde script'),
-(26, 'Prueba', 'prueba@example.com', 'mensaje de prueba'),
-(27, 'Prueba', 'test@example.com', 'hola'),
-(28, 'a', 'a@a', 'a');
+(25, 'Test', 'test@example.com', 'Prueba desde script');
 
 -- --------------------------------------------------------
 
@@ -406,7 +381,7 @@ ALTER TABLE `tecnologias`
 -- AUTO_INCREMENT de la tabla `formulario`
 --
 ALTER TABLE `formulario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT de la tabla `idiomas`
