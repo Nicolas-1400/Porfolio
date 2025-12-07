@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-12-2025 a las 13:32:29
+-- Tiempo de generación: 07-12-2025 a las 13:48:11
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -65,7 +65,8 @@ INSERT INTO `formulario` (`id`, `nombre`, `email`, `mensaje`) VALUES
 (24, 'Chao Alarcón Chen', 'chaoalarcon01@gmail.com', 'hola'),
 (25, 'Test', 'test@example.com', 'Prueba desde script'),
 (26, 'Prueba', 'prueba@example.com', 'mensaje de prueba'),
-(27, 'Prueba', 'test@example.com', 'hola');
+(27, 'Prueba', 'test@example.com', 'hola'),
+(28, 'a', 'a@a', 'a');
 
 -- --------------------------------------------------------
 
@@ -182,7 +183,10 @@ INSERT INTO `programadores_proyectos` (`id`, `programadorId`, `proyectoId`) VALU
 (25, 1, 18),
 (26, 3, 19),
 (27, 2, 19),
-(28, 1, 19);
+(28, 1, 19),
+(29, 1, 20),
+(30, 2, 21),
+(31, 3, 22);
 
 -- --------------------------------------------------------
 
@@ -202,44 +206,44 @@ CREATE TABLE `programadores_tecnologias` (
 --
 
 INSERT INTO `programadores_tecnologias` (`id`, `programadorId`, `tecnologiaId`, `nivel`) VALUES
-(101, 1, 1, 'Avanzado'),
-(102, 1, 2, 'Avanzado'),
-(103, 1, 3, 'Avanzado'),
-(104, 1, 4, 'Avanzado'),
-(105, 1, 6, 'Intermedio'),
-(106, 1, 7, 'Intermedio'),
-(107, 1, 8, 'Intermedio'),
-(108, 1, 9, 'Avanzado'),
-(109, 1, 10, 'Avanzado'),
-(110, 1, 11, 'Avanzado'),
-(111, 1, 12, 'Avanzado'),
-(117, 1, 18, 'Avanzado'),
-(118, 1, 19, 'Avanzado'),
-(119, 1, 20, 'Intermedio'),
+(101, 3, 1, 'Avanzado'),
+(102, 3, 2, 'Avanzado'),
+(103, 3, 3, 'Avanzado'),
+(104, 3, 4, 'Avanzado'),
+(105, 3, 6, 'Intermedio'),
+(106, 3, 7, 'Intermedio'),
+(107, 3, 8, 'Intermedio'),
+(108, 3, 9, 'Avanzado'),
+(109, 3, 10, 'Avanzado'),
+(110, 3, 11, 'Avanzado'),
+(111, 3, 12, 'Avanzado'),
+(117, 3, 18, 'Avanzado'),
+(118, 3, 19, 'Avanzado'),
+(119, 3, 20, 'Intermedio'),
 (120, 2, 1, 'Avanzado'),
-(121, 2, 2, 'Avanzado'),
-(122, 2, 3, 'Avanzado'),
-(123, 2, 4, 'Avanzado'),
+(121, 2, 2, 'Intermedio'),
+(122, 2, 3, 'Intermedio'),
+(123, 2, 4, 'Intermedio'),
 (124, 2, 6, 'Intermedio'),
 (125, 2, 7, 'Intermedio'),
 (126, 2, 8, 'Intermedio'),
-(127, 2, 9, 'Avanzado'),
-(128, 2, 10, 'Avanzado'),
+(127, 2, 9, 'Básico'),
+(128, 2, 10, 'Básico'),
 (129, 2, 11, 'Intermedio'),
 (130, 2, 12, 'Avanzado'),
 (131, 2, 19, 'Básico'),
-(132, 3, 1, 'Avanzado'),
-(133, 3, 2, 'Avanzado'),
-(134, 3, 3, 'Avanzado'),
-(135, 3, 4, 'Avanzado'),
-(136, 3, 6, 'Intermedio'),
-(137, 3, 7, 'Intermedio'),
-(138, 3, 8, 'Intermedio'),
-(139, 3, 9, 'Avanzado'),
-(140, 3, 10, 'Avanzado'),
-(141, 3, 11, 'Intermedio'),
-(142, 3, 12, 'Avanzado'),
-(143, 3, 19, 'Básico');
+(132, 1, 1, 'Avanzado'),
+(133, 1, 2, 'Intermedio'),
+(134, 1, 3, 'Avanzado'),
+(135, 1, 4, 'Avanzado'),
+(136, 1, 6, 'Intermedio'),
+(137, 1, 7, 'Básico'),
+(138, 1, 8, 'Básico'),
+(139, 1, 9, 'Básico'),
+(140, 1, 10, 'Básico'),
+(141, 1, 11, 'Intermedio'),
+(142, 1, 12, 'Básico'),
+(143, 1, 19, 'Básico');
 
 -- --------------------------------------------------------
 
@@ -271,9 +275,12 @@ INSERT INTO `proyectos` (`id`, `titulo`, `descripcion`, `tecnologias`, `empresa`
 (14, 'Buscador de personajes de Dragon Ball', 'Buscador de personajes basado en una API REST de Dragon Ball con filtros por nombre, raza y género.', 'HTML5, CSS3, JavaScript, Bootstrap, API REST, GitHub', 'Instituto Nebrija de Formación Profesional', '2025-06-01', 'https://github.com/ChaoAlarcon/Dragon-Ball-API'),
 (15, 'Portfolio Web de presentación de varios perfiles', 'Una plataforma de presentación profesional diseñada para exhibir las habilidades y proyectos de nuestro colectivo de desarrollo y diseño. Este proyecto fue construido para simular un entorno de trabajo real, utilizando un stack Node.js con un motor de plantillas para renderizado dinámico.', 'HTML5, CSS3, Bootstrap, JavaScript, Handlebars, Node, Express, MySQL, GitHub', 'Instituto Nebrija de Formación Profesional', '2025-12-10', 'https://github.com/Nicolas-1400/Porfolio'),
 (16, 'Sitio web \"Carnaval Brasil\"', 'Sitio web informativo sobre el Carnaval en Brasil.', 'HTML5, CSS3', 'Instituto Nebrija de Formación Profesional', '2025-03-01', 'https://drive.google.com/drive/folders/178f9StSW3dfPCH9HtxwD3VUE9Yqn2oZ7?usp=sharing'),
-(17, 'Sitio Web \"Álvaro\"', 'Description', 'HTML5, CSS3', 'Instituto Nebrija de Formación Profesional', '2025-03-01', NULL),
+(17, 'Sitio Web \"Torneo Pokémon\"', 'Description', 'HTML5, CSS3', 'Instituto Nebrija de Formación Profesional', '2025-03-01', 'https://drive.google.com/drive/folders/1_ZcJUUaMVgHHVjpDp7CCwRyWQVRjEWaQ?usp=sharing'),
 (18, 'Proyecto Solidario de Aula TIC en Honduras', 'Diseño y despliegue de un aula TIC para la infancia en Honduras.', 'Cisco Packet Tracer, GitHub, draw.io', 'Instituto Nebrija de Formación Profesional', '2025-05-01', 'https://drive.google.com/drive/folders/1JGFb75UDOVPMKVMgC5jEjiv_1wt4PSBM?usp=sharing'),
-(19, 'Aventura Conversacional \"Fire Emblem\"', 'Aventura conversacional interactiva desarrollada con Java.', 'Java', 'Instituto Nebrija de Formación Profesional', '2025-01-01', 'https://drive.google.com/drive/folders/12SiehDkQ96Zj3hxzWQoEe-K6q9iIwXYQ?usp=sharing');
+(19, 'Aventura Conversacional \"Fire Emblem\"', 'Aventura conversacional interactiva desarrollada con Java.', 'Java', 'Instituto Nebrija de Formación Profesional', '2025-01-01', 'https://drive.google.com/drive/folders/12SiehDkQ96Zj3hxzWQoEe-K6q9iIwXYQ?usp=sharing'),
+(20, 'Sitio informativo \"Shazam\"', 'Sitio web de una aplicación de móvil.', 'HTML5, CSS3', 'Instituto Nebrija de Formación Profesional', '2025-03-12', 'https://drive.google.com/drive/folders/1wZeCtVyPf-oCr34h1rHC60h3G-zaoSBn?usp=sharing'),
+(21, 'Sitio informativo \"Chat GPT\"', 'Sitio web de una aplicación de móvil.', 'HTML5, CSS3', 'Instituto Nebrija de Formación Profesional', '2025-03-12', 'https://drive.google.com/drive/folders/1q3zYwyRGdk27n8GUJLkA-uWh-v1G9Pwj?usp=sharing'),
+(22, 'Sitio informativo \"Pokémon GO\"', 'Sitio web de una aplicación de móvil.', 'HTML5, CSS3', 'Instituto Nebrija de Formación Profesional', '2025-03-12', 'https://drive.google.com/drive/folders/160PgwcpJhTElFmyRKAD1jqrKvKUrRmjz?usp=sharing');
 
 -- --------------------------------------------------------
 
@@ -399,7 +406,7 @@ ALTER TABLE `tecnologias`
 -- AUTO_INCREMENT de la tabla `formulario`
 --
 ALTER TABLE `formulario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de la tabla `idiomas`
@@ -423,7 +430,7 @@ ALTER TABLE `programadores_idiomas`
 -- AUTO_INCREMENT de la tabla `programadores_proyectos`
 --
 ALTER TABLE `programadores_proyectos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de la tabla `programadores_tecnologias`
@@ -435,7 +442,7 @@ ALTER TABLE `programadores_tecnologias`
 -- AUTO_INCREMENT de la tabla `proyectos`
 --
 ALTER TABLE `proyectos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `tecnologias`
